@@ -1,0 +1,137 @@
+@charset "UTF-8";
+/* global page */
+body{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Work Sans', sans-serif;
+}
+a,a:hover{
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
+/* header */
+header{
+    background-color: #333333;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 35px 5px 35px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.headerGauche{
+    /* border:1px solid yellow; */
+    flex:1;
+}
+.headerGauche a{
+    font-size: 1.5em;
+    margin-right: 15px;
+    color: #fff;
+}
+.headerGauche a:nth-child(1):hover{
+    color: #4A66A0;
+}
+.headerGauche a:nth-child(2):hover{
+    color:red;
+}
+.headerGauche a:nth-child(3):hover{
+    color: #1DA1F2;
+}
+.headerDroite{
+    flex:1;
+    text-align: right;
+}
+.headerDroite .formSearch{
+    border:3px solid #fff;
+    border-radius:5px 0px 0px 5px;
+}
+.headerDroite .btnSearch{
+    border:3px solid #fff;
+    border-radius:0px 5px 5px 0px;
+}
+.headerDroite .btnSearch:hover{
+    background-color:#00FFFF;
+}
+/* footer h1 */
+.footer{
+    background-color: #333333;
+    color: #fff;
+    padding:15px 0px 15px 0px;
+}
+.footer a{
+    color: #fff;
+}
+.footer a:hover{
+    color: rgba(128,128,128.5);
+}
+.footerElement{
+    border-bottom: 1px solid white;
+
+}
+.footerElement h1{
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 3px 3px 3px #000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.inputNewsLetter{
+    border-radius:5px 0px 0px 5px;
+}
+.btnNewsLetter{
+    border-radius:0px 5px 5px 0px;
+}
+.inputNewsLetter,.btnNewsLetter{
+    border:3px solid #fff;
+}
+.footerElement p{
+    text-align: center;
+}
+.footerElement ul {
+    display: inline-block;
+    margin-top: 10px;
+}.footer figure{
+    text-align: center;
+    margin-top: 15px;
+}
+.footer figure a{
+    font-size: 1.8em;
+    margin-right: 15px;
+}
+.footer figure a:nth-child(1):hover{
+    color: blue;
+}
+.footer figure a:nth-child(4):hover{
+    color: green;
+}
+.footer figure a:nth-child(2):hover,.footer figure a:nth-child(3):hover{
+    color: red;
+}
+/* ----------------------------------------les media queries -------------------------------------------------*/
+@media all and (max-width:1024px){
+    /* entete */
+    header{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .formSearch{
+        width: 170px;
+    }
+    /* footer */
+    .footer{
+        text-align: center;
+    }
+    .formNewsLetter{
+        padding-bottom: 10px;
+        display: flex;
+       justify-content: center;
+    }
+    .inputNewsLetter{
+       width: 170px;
+
+    }
+}
