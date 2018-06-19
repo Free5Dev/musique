@@ -32,8 +32,8 @@
     <?php include('header.inc.php'); ?>
     <!-- section -->
     <section class="container-fluid" style="height:300px; ">
-        <h1>welcom</h1>
-    </section>
+        
+     </section>
     <!-- inclusion du footer -->
     <?php include('footer.inc.php'); ?>
 </body>
