@@ -30,6 +30,8 @@
 <body>
     <!-- inclusion du header -->
     <?php include('header.inc.php'); ?>
+    <!-- navbar -->
+    <?php include('navbar.inc.php'); ?>
     <!-- section -->
     <section class="container-fluid" style="height:300px; ">
         

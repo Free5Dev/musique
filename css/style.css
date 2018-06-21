@@ -62,9 +62,17 @@ header{
     font-family:'Berkshire Swash', cursive;
 } 
 .navbarMenu .nav-link,.navbarMenu .dropdown-item{
-    color: rgb(51,51,51);
+    color: #333;
     font-family:'Kaushan Script', cursive;
     text-transform: uppercase;
+}
+.navbarMenu .nav-link:hover{
+    border-bottom: 1px solid #333;
+    color: #333;
+}
+.navbarMenu .dropdown-item:hover{
+    background-color: #333;
+    color: #fff;
 }
 /* footer h1 */
 .footer{
