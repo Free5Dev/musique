@@ -28,7 +28,7 @@
 <body>
     <!-- navbar  -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light navbarMenu">
-      <a class="navbar-brand text-danger" href="#">K.B.Z</a>
+      <a class="navbar-brand text-danger" href="index.php">K.B.Z</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

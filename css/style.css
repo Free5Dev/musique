@@ -56,6 +56,7 @@ header{
 /* menu deroulant */
 .navbarMenu{
     padding:0px 35px 0px 35px;
+    margin:15px 0px 15px 0px;
 }
 .navbarMenu .navbar-brand{
     font-size: 1.8em;
