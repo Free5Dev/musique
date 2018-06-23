@@ -33,9 +33,7 @@
     <!-- navbar -->
     <?php include('navbar.inc.php'); ?>
     <!-- section -->
-    <section class="container-fluid" style="height:300px; background-color:rgba(128,128,128,.5)">
-        
-     </section>
+   <?php include('sectionAccueil.inc.php'); ?>
     <!-- inclusion du footer -->
     <?php include('footer.inc.php'); ?>
 </body>

@@ -75,7 +75,29 @@ header{
     background-color: #333;
     color: #fff;
 }
-/* footer h1 */
+/* -----------------------------------------------------sectionAccueil----------------------------------- */
+.accueilFluid{
+    background-color: #D3D3D3;
+    height: 700px;
+}
+.accueilFluid .accueilRow .accueilCol{
+    /* border:1px solid red; */
+    padding: 0;
+}
+.accueilFluid .accueilRow .accueilCol .accueilElement{
+    background-color: #fff;
+    height: 200px;
+    margin: 10px;
+
+}
+.plegunFacebook{
+    padding: 5px;
+}
+.fb-page{
+    width: 290px;
+    min-width: 20px;
+}
+/* -------------------------------------------------------footer h1------------------------------------- */
 .footer{
     background-color: #333333;
     color: #fff;
