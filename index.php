@@ -34,6 +34,7 @@
     <?php include('navbar.inc.php'); ?>
     <!-- section -->
    <?php include('sectionAccueil.inc.php'); ?>
+   
     <!-- inclusion du footer -->
     <?php include('footer.inc.php'); ?>
 </body>

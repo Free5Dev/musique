@@ -75,33 +75,53 @@ header{
     background-color: #333;
     color: #fff;
 }
+.pubSite{
+    width: 100%;
+    max-width: 100%;
+}
+.pubSite img{
+    width: 100%;
+    max-width: 100%;
+}
 /* -----------------------------------------------------sectionAccueil----------------------------------- */
-.accueilFluid{
+.fluidAccueil{
     background-color: #D3D3D3;
-    height: 700px;
-}
-.accueilFluid .accueilRow .accueilCol{
     /* border:1px solid red; */
-    padding: 0;
+   /* height: 700px; */
 }
-.accueilFluid .accueilRow .accueilCol .accueilElement{
-    background-color: #fff;
-    height: 200px;
-    margin: 10px;
-
+.colAccueilGauche,.colAccueilDroite{
+    
+   
 }
-.plegunFacebook{
+.colAccueilGauche{ /*div du guche*/
+    border:1px solid yellow;
+}
+.colAccueilDroite{ /*div du droite*/
+    
+}
+.rowColAccueilDroiteElement{
     padding: 5px;
 }
-.fb-page{
-    width: 290px;
-    min-width: 20px;
+.colAccueilDroiteElementPub{
+   /* height: 200px; */
+   line-height: 200px;
+   border:1px solid #D3D3D3;
+   background-color: #fff;
+   margin-bottom: 2px;
+   text-align: center;
+   /* display: flex;
+   align-items: center;
+   justify-content: center; */
+   text-align: center;
+   padding: 2px;
 }
+
 /* -------------------------------------------------------footer h1------------------------------------- */
 .footer{
     background-color: #333333;
     color: #fff;
     padding:15px 0px 15px 0px;
+   
 }
 .footer a{
     color: #fff;
@@ -165,6 +185,8 @@ header{
     .formSearch{
         width: 170px;
     }
+    /* section accueil  */
+    
     /* footer */
     .footer{
         text-align: center;
