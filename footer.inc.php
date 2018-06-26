@@ -45,10 +45,10 @@
                        <li><a href="http://"><i class="fas fa-shopping-cart"></i> Shop</a></li>
                    </ul>
                    <ul>
-                       <li><a href="http://"><i class="fas fa-headphones"></i> Rap Usa</a></li>
-                       <li><a href="http://"><i class="fas fa-headphones"></i> Rap Fr</a></li>
-                       <li><a href="http://"><i class="fas fa-headphones"></i> Rap Afro</a></li>
-                       <li><a href="http://"><i class="fas fa-headphones"></i> Reggea Dancehall</a></li>
+                       <li><a href="rapUsa.inc.php"><i class="fas fa-headphones"></i> Rap Usa</a></li>
+                       <li><a href="rapFr.inc.php"><i class="fas fa-headphones"></i> Rap Fr</a></li>
+                       <li><a href="rapAfro.inc.php"><i class="fas fa-headphones"></i> Rap Afro</a></li>
+                       <li><a href="reggeaDancehall.inc.php"><i class="fas fa-headphones"></i> Reggea Dancehall</a></li>
                    </ul>
                </div>
                <div class="col-sm-12 col-md-4 footerElement"  >

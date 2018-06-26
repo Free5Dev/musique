@@ -20,20 +20,20 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="sectionAccueil.inc.php">Accueil <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Musiques
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Rap Usa</a>
+          <a class="dropdown-item" href="rapUsa.inc.php">Rap Usa</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Rap Fr</a>
+          <a class="dropdown-item" href="rapFr.inc.php">Rap Fr</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Rap Afro</a>
+          <a class="dropdown-item" href="rapAfro.inc.php">Rap Afro</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Reggue Dancehall</a>
+          <a class="dropdown-item" href="reggeaDancehall.inc.php">Reggue Dancehall</a>
         </div>
       </li>
       <li class="nav-item">

@@ -56,6 +56,10 @@
     <script src="./js/script.js"></script>
 </head>
 <body>
+     <!-- inclusion du header -->
+     <?php include('header.inc.php'); ?>
+    <!-- navbar -->
+    <?php include('navbar.inc.php'); ?>
     <!-- section accueil -->
     <section class="container-fluid fluidAccueil">
         <section class="row rowAccueil">
@@ -82,66 +86,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col col-md-12 colAccueilGaucheElementVideo">
-                        <!-- contenu top hit rap usa -->
-                        <h3><a href="rapUsa.inc.php">Top Hit Usa</a></h3>
-                        <div class="row rowHit">
-                            <?php while($donneesUsa=$reqUsa->fetch()) { ?>
-                            <div class="col-sm-12 col-md-4 colHit">
-                                <p><a href="#"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesUsa['nomArtiste']); ?></a></p>
-                                <p class="photo"><a href="#"><img src="<?php echo htmlspecialchars($donneesUsa['photo']); ?>" alt=""></a></p>
-                                <p><a href="#"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesUsa['titre']); ?></a></p>
-                            </div>
-                            <?php } $reqUsa->closeCursor(); ?>
-                        </div>
-                        <!-- end -->
-                    </div>
-                   <!--  -->
-                   <div class="col col-md-12 colAccueilGaucheElementVideo">
-                        <!-- contenu top hit rap Fr -->
-                        <h3><a href="#">Top Hit Fr</a></h3>
-                        <div class="row rowHit">
-                            <?php while($donneesFr=$reqFr->fetch()) { ?>
-                            <div class="col-sm-12 col-md-4 colHit">
-                                <p><a href="#"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesFr['nomArtiste']); ?></a></p>
-                                <p class="photo"><a href="#"><img src="<?php echo htmlspecialchars($donneesFr['photo']); ?>" alt=""></a></p>
-                                <p><a href="#"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesFr['titre']); ?></a></p>
-                            </div>
-                            <?php } $reqFr->closeCursor(); ?>
-                        </div>
-                        <!-- end -->
-                    </div>
-                    <!--  -->
-                    <div class="col col-md-12 colAccueilGaucheElementVideo">
-                        <!-- contenu top hit rap Fr -->
-                        <h3><a href="#">Top Hit Afro</a></h3>
-                        <div class="row rowHit">
-                            <?php while($donneesAfro=$reqAfro->fetch()) { ?>
-                            <div class="col-sm-12 col-md-4 colHit">
-                                <p><a href="#"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesAfro['nomArtiste']); ?></a></p>
-                                <p class="photo"><a href="#"><img src="<?php echo htmlspecialchars($donneesAfro['photo']); ?>" alt=""></a></p>
-                                <p><a href="#"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesAfro['titre']); ?></a></p>
-                            </div>
-                            <?php } $reqAfro->closeCursor(); ?>
-                        </div>
-                        <!-- end -->
-                    </div>
-                    <!--  -->
-                    <div class="col col-md-12 colAccueilGaucheElementVideo">
-                        <!-- contenu top hit rap Fr -->
-                        <h3><a href="#">Top Hit Reggea-Dancehall</a></h3>
-                        <div class="row rowHit">
-                            <?php while($donneesReggeaDancehall=$reqReggeaDancehall->fetch()) { ?>
-                            <div class="col-sm-12 col-md-4 colHit">
-                                <p><a href="#"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesReggeaDancehall['nomArtiste']); ?></a></p>
-                                <p class="photo"><a href="#"><img src="<?php echo htmlspecialchars($donneesReggeaDancehall['photo']); ?>" alt=""></a></p>
-                                <p><a href="#"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesReggeaDancehall['titre']); ?></a></p>
-                            </div>
-                            <?php } $reqReggeaDancehall->closeCursor(); ?>
-                        </div>
-                        <!-- end -->
-                    </div>
-                    <!--  -->
                 </div>
             </article>
             <!-- ----------------------------------------banniere de droite------------------------------ -->
@@ -211,5 +155,7 @@
 
         </section>
     </section>
+    <!-- inclusion du footer -->
+    <?php include('footer.inc.php'); ?>
 </body>
 </html>
