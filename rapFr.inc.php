@@ -1,8 +1,8 @@
 <?php 
     // appel de la function de connexion à la bdd
     require_once('connexion.inc.php');
-    // requete pour rap usa
-    $reqUsa=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=1 ORDER BY ID DESC LIMIT 8");
+    // requete pour rap Fr
+    $reqFr=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=2 ORDER BY ID DESC LIMIT 8");
     //   requete blog kbz
     $reqBlog=$bdd->query("SELECT b.id,b.titre,b.commentaire,b.idMembre,b.urlBlog,b.photoBlog,date_format(dateBlog,'Le %d/%m/%Y à %Hh%imin%ss') as dateBlog,m.nom FROM blog as b, membres as m WHERE b.idMembre=m.id order by id desc limit 1");
     $donneesBlog=$reqBlog->fetch();
@@ -58,14 +58,14 @@
             <article class="col-sm-12 col-md-9 colRapUsaGauche">
                 <!-- contenue de la banniere de gauche -->
                 <div class="row rowColRapUsaGaucheElement">
-                <?php while($donneesUsa=$reqUsa->fetch()) { ?>
+                <?php while($donneesFr=$reqFr->fetch()) { ?>
                     <div class="col-sm-12 col-md-6 colRapUsaGaucheElementVideo">
                        
                         <div class="colRapUsaGaucheElementVideoElement">
-                            <h3><a href="#"><span class="text-danger">Artiste(s):</span> <?php echo htmlspecialchars($donneesUsa['nomArtiste']); ?> <span class="text-danger">Titre:</span> <?php echo htmlspecialchars($donneesUsa['titre']); ?></a></h3>
+                            <h3><a href="#"><span class="text-danger">Artiste(s):</span> <?php echo htmlspecialchars($donneesFr['nomArtiste']); ?> <span class="text-danger">Titre:</span> <?php echo htmlspecialchars($donneesFr['titre']); ?></a></h3>
                            
-                            <p id="img"><a href=""><img class="img-fluid img" src="<?php echo $donneesUsa['photo']; ?>" /></a></p>
-                            <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesUsa['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesUsa['datePub']); ?></small></p>
+                            <p id="img"><a href=""><img class="img-fluid img" src="<?php echo $donneesFr['photo']; ?>" /></a></p>
+                            <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesFr['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesFr['datePub']); ?></small></p>
                             <p class="p4"><a href="#">Commentaires</a></p>
                             <div class="row rowMusiqesBtnSociaux">
                                 <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
@@ -81,7 +81,7 @@
                         </div>
                         
                     </div>
-                    <?php } $reqUsa->closeCursor(); ?>
+                    <?php } $reqFr->closeCursor(); ?>
                 </div>
             </article>
             <!-- ----------------------------------------banniere de droite------------------------------ -->
