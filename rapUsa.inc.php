@@ -1,11 +1,8 @@
 <?php 
     // appel de la function de connexion à la bdd
     require_once('connexion.inc.php');
-    // requete de select à la bdd des hit rap usa and rap fr
-    $reqUsaEtFr=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie BETWEEN 1 and 2 ORDER BY ID DESC LIMIT 1");
-    $donneesUsaEtFr=$reqUsaEtFr->fetch();
     // requete pour rap usa
-    $reqUsa=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=1 ORDER BY ID DESC LIMIT 1,3");
+    $reqUsa=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=1 ORDER BY ID DESC LIMIT 8");
     // requete pour rap fr
     $reqFr=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=2 ORDER BY ID DESC LIMIT 3");
      // requete pour rap Afro
@@ -64,28 +61,33 @@
     <section class="container-fluid fluidAccueil">
         <section class="row rowAccueil">
             <!-- ---------------------------------------banniere de gauche---------------------------------------- -->
-            <article class="col-sm-12 col-md-9 colAccueilGauche">
+            <article class="col-sm-12 col-md-9 colRapUsaGauche">
                 <!-- contenue de la banniere de gauche -->
-                <div class="row rowColAccueilGaucheElement">
-                    <div class="col col-md-12 colAccueilGaucheElementVideo">
-                        <!-- contenue de colAccueilGaucheElementVideo -->
-                        <h2><span class="text-danger">Artiste(s):</span> <?php echo htmlspecialchars($donneesUsaEtFr['nomArtiste']); ?> <span class="text-danger">Titre:</span> <?php echo htmlspecialchars($donneesUsaEtFr['titre']); ?></h2>
-                        <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesUsaEtFr['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesUsaEtFr['datePub']); ?></small></p>
-                        <p><iframe class="img-fluid iframe" src="<?php echo $donneesUsaEtFr['url']; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
-                        <p class="p4"><a href="#">Commentaires</a></p>
-                        <!-- button reseaux sociaux -->
-                        <div class="row rowAccueilBtnSociaux">
-                            <div class="col-md-4 col-sm-4 img-fluid">
-                                <button class="btn btn-outline-primary">Partager sur Facebook</button>
-                            </div>
-                            <div class="col-md-4 col-sm-4 img-fluid">
-                                <button class="btn btn-outline-danger">Partager sur Gmail</button>
-                            </div>
-                            <div class="col-md-4 col-sm-4 img-fluid">
-                                <button class="btn btn-outline-success">Partager sur Tweeter</button>
+                <div class="row rowColRapUsaGaucheElement">
+                <?php while($donneesUsa=$reqUsa->fetch()) { ?>
+                    <div class="col-sm-12 col-md-6 colRapUsaGaucheElementVideo">
+                       
+                        <div class="colRapUsaGaucheElementVideoElement">
+                            <h3><a href="#"><span class="text-danger">Artiste(s):</span> <?php echo htmlspecialchars($donneesUsa['nomArtiste']); ?> <span class="text-danger">Titre:</span> <?php echo htmlspecialchars($donneesUsa['titre']); ?></a></h3>
+                           
+                            <p id="img"><a href=""><img class="img-fluid img" src="<?php echo $donneesUsa['photo']; ?>" /></a></p>
+                            <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesUsa['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesUsa['datePub']); ?></small></p>
+                            <p class="p4"><a href="#">Commentaires</a></p>
+                            <div class="row rowMusiqesBtnSociaux">
+                                <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
+                                    <a class="btn btn-outline-primary btn-sm"><small>Partager sur Facebook</small></a>
+                                </div>
+                                <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
+                                    <a class="btn btn-outline-danger btn-sm"><small>Partager sur Google+</small></a>
+                                </div>
+                                <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
+                                    <a class="btn btn-outline-success btn-sm"><small>Partager sur Tweeter</small></a>
+                                </div>
                             </div>
                         </div>
+                        
                     </div>
+                    <?php } $reqUsa->closeCursor(); ?>
                 </div>
             </article>
             <!-- ----------------------------------------banniere de droite------------------------------ -->
