@@ -257,6 +257,70 @@ header{
 .colMusiquesBtnSociaux:hover{
     color: #fff;
 }
+/* ----------------------------------------------------commentaire.inc.php ----------------------------*/
+.rowCommentaire{
+    /* height: 500px; */
+    /* border:1px solid yellow; */
+    padding: 5px;
+}
+.rowCommentaire h2{
+    width:100%;
+    border-bottom:1px solid #D3D3D3; 
+    margin:0px; 
+    background-color:#333; 
+    font-size:1em;text-align:center;
+    text-transform: uppercase;
+    color: #fff;
+}
+.colCommentaire{
+    /* border:1px solid red; */
+    background-color: #fff;
+    margin-bottom: 5px;
+    padding: 5px;
+    text-align: center;
+}
+.colCommentaire h3{
+    text-transform: uppercase;
+    font-size: 1.2em;
+    
+}
+.colCommentaire .p1{
+    margin-top: 0;
+   
+}
+.colCommentaire .iframe{
+    width: 950px;
+    height: 420px;
+   margin: 0;
+}
+.colCommentaire #iframe{
+    margin-bottom: 0;
+}
+.colCommentaire .colMusiquesBtnSociaux{
+    text-align: center;
+    margin-bottom: 5px;
+}
+.colCommentaire .img-responsive{
+    width:100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+.colCommentaire .img-responsive img{
+    width:100%;
+    max-width: 100%;
+    transition: 0.75s;
+
+}
+.colCommentaire .img-responsive:hover img{
+    transform: scale(1.2);
+}
+.colCommentaire .voir{
+    text-align-last: left;
+    margin-top: 0;
+}
+.colCommentaire .voir a{
+    border-radius:0;
+}
 /*-------------------------------------d------------------div du droite-------------------------*/
 .colAccueilDroite{ 
     

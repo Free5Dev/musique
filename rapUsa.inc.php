@@ -62,11 +62,11 @@
                     <div class="col-sm-12 col-md-6 colRapUsaGaucheElementVideo">
                        
                         <div class="colRapUsaGaucheElementVideoElement">
-                            <h3><a href="#"><span class="text-danger">Artiste(s):</span> <?php echo htmlspecialchars($donneesUsa['nomArtiste']); ?> <span class="text-danger">Titre:</span> <?php echo htmlspecialchars($donneesUsa['titre']); ?></a></h3>
+                            <h3><a href="rapUsaCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsa['id']); ?>"><span class="text-danger">Artiste(s):</span> <?php echo htmlspecialchars($donneesUsa['nomArtiste']); ?> <span class="text-danger">Titre:</span> <?php echo htmlspecialchars($donneesUsa['titre']); ?></a></h3>
                            
-                            <p id="img"><a href=""><img class="img-fluid img" src="<?php echo $donneesUsa['photo']; ?>" /></a></p>
+                            <p id="img"><a href="rapUsaCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsa['id']); ?>"><img class="img-fluid img" src="<?php echo $donneesUsa['photo']; ?>" /></a></p>
                             <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesUsa['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesUsa['datePub']); ?></small></p>
-                            <p class="p4"><a href="#">Commentaires</a></p>
+                            <p class="p4"><a href="rapUsaCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsa['id']); ?>">Commentaires</a></p>
                             <div class="row rowMusiqesBtnSociaux">
                                 <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
                                     <a class="btn btn-outline-primary btn-sm"><small>Partager sur Facebook</small></a>

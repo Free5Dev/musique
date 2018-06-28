@@ -2,7 +2,7 @@
     // appel de la function de connexion à la bdd
     require_once('connexion.inc.php');
     // requete de select à la bdd des hit rap usa and rap fr
-    $reqUsaEtFr=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie BETWEEN 1 and 2 ORDER BY ID DESC LIMIT 1");
+    $reqUsaEtFr=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=1 ORDER BY ID DESC LIMIT 1");
     $donneesUsaEtFr=$reqUsaEtFr->fetch();
     // requete pour rap usa
     $reqUsa=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=1 ORDER BY ID DESC LIMIT 1,3");
@@ -68,7 +68,7 @@
                         <h2><span class="text-danger">Artiste(s):</span> <?php echo htmlspecialchars($donneesUsaEtFr['nomArtiste']); ?> <span class="text-danger">Titre:</span> <?php echo htmlspecialchars($donneesUsaEtFr['titre']); ?></h2>
                         <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesUsaEtFr['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesUsaEtFr['datePub']); ?></small></p>
                         <p><iframe class="img-fluid iframe" src="<?php echo $donneesUsaEtFr['url']; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
-                        <p class="p4"><a href="#">Commentaires</a></p>
+                        <p class="p4"><a href="rapUsaCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsaEtFr['id']); ?>">Commentaires</a></p>
                         <!-- button reseaux sociaux -->
                         <div class="row rowAccueilBtnSociaux">
                             <div class="col-md-4 col-sm-4 img-fluid">
@@ -88,9 +88,9 @@
                         <div class="row rowHit">
                             <?php while($donneesUsa=$reqUsa->fetch()) { ?>
                             <div class="col-sm-12 col-md-4 colHit">
-                                <p><a href="#"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesUsa['nomArtiste']); ?></a></p>
-                                <p class="photo"><a href="#"><img src="<?php echo htmlspecialchars($donneesUsa['photo']); ?>" alt=""></a></p>
-                                <p><a href="#"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesUsa['titre']); ?></a></p>
+                                <p><a href="rapUsaCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsa['id']); ?>"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesUsa['nomArtiste']); ?></a></p>
+                                <p class="photo"><a href="rapUsaCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsa['id']); ?>"><img src="<?php echo htmlspecialchars($donneesUsa['photo']); ?>" alt=""></a></p>
+                                <p><a href="rapUsaCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsa['id']); ?>"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesUsa['titre']); ?></a></p>
                             </div>
                             <?php } $reqUsa->closeCursor(); ?>
                         </div>
@@ -99,13 +99,13 @@
                    <!--  -->
                    <div class="col col-md-12 colAccueilGaucheElementVideo">
                         <!-- contenu top hit rap Fr -->
-                        <h3><a href="#">Top Hit Fr</a></h3>
+                        <h3><a href="rapFr.inc.php">Top Hit Fr</a></h3>
                         <div class="row rowHit">
                             <?php while($donneesFr=$reqFr->fetch()) { ?>
                             <div class="col-sm-12 col-md-4 colHit">
-                                <p><a href="#"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesFr['nomArtiste']); ?></a></p>
-                                <p class="photo"><a href="#"><img src="<?php echo htmlspecialchars($donneesFr['photo']); ?>" alt=""></a></p>
-                                <p><a href="#"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesFr['titre']); ?></a></p>
+                                <p><a href="rapFrCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesFr['id']); ?>"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesFr['nomArtiste']); ?></a></p>
+                                <p class="photo"><a href="rapFrCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesFr['id']); ?>"><img src="<?php echo htmlspecialchars($donneesFr['photo']); ?>" alt=""></a></p>
+                                <p><a href="rapFrCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesFr['id']); ?>"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesFr['titre']); ?></a></p>
                             </div>
                             <?php } $reqFr->closeCursor(); ?>
                         </div>
