@@ -114,13 +114,13 @@
                     <!--  -->
                     <div class="col col-md-12 colAccueilGaucheElementVideo">
                         <!-- contenu top hit rap Fr -->
-                        <h3><a href="#">Top Hit Afro</a></h3>
+                        <h3><a href="rapAfro.inc.php">Top Hit Afro</a></h3>
                         <div class="row rowHit">
                             <?php while($donneesAfro=$reqAfro->fetch()) { ?>
                             <div class="col-sm-12 col-md-4 colHit">
-                                <p><a href="#"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesAfro['nomArtiste']); ?></a></p>
-                                <p class="photo"><a href="#"><img src="<?php echo htmlspecialchars($donneesAfro['photo']); ?>" alt=""></a></p>
-                                <p><a href="#"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesAfro['titre']); ?></a></p>
+                                <p><a href="rapAfroCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesAfro['id']); ?>"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesAfro['nomArtiste']); ?></a></p>
+                                <p class="photo"><a href="rapAfroCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesAfro['id']); ?>"><img src="<?php echo htmlspecialchars($donneesAfro['photo']); ?>" alt=""></a></p>
+                                <p><a href="rapAfroCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesAfro['id']); ?>"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesAfro['titre']); ?></a></p>
                             </div>
                             <?php } $reqAfro->closeCursor(); ?>
                         </div>
@@ -129,13 +129,13 @@
                     <!--  -->
                     <div class="col col-md-12 colAccueilGaucheElementVideo">
                         <!-- contenu top hit rap Fr -->
-                        <h3><a href="#">Top Hit Reggea-Dancehall</a></h3>
+                        <h3><a href="reggeaDancehall.inc.php">Top Hit Reggea-Dancehall</a></h3>
                         <div class="row rowHit">
                             <?php while($donneesReggeaDancehall=$reqReggeaDancehall->fetch()) { ?>
                             <div class="col-sm-12 col-md-4 colHit">
-                                <p><a href="#"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesReggeaDancehall['nomArtiste']); ?></a></p>
-                                <p class="photo"><a href="#"><img src="<?php echo htmlspecialchars($donneesReggeaDancehall['photo']); ?>" alt=""></a></p>
-                                <p><a href="#"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesReggeaDancehall['titre']); ?></a></p>
+                                <p><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesReggeaDancehall['id']); ?>"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesReggeaDancehall['nomArtiste']); ?></a></p>
+                                <p class="photo"><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesReggeaDancehall['id']); ?>"><img src="<?php echo htmlspecialchars($donneesReggeaDancehall['photo']); ?>" alt=""></a></p>
+                                <p><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesReggeaDancehall['id']); ?>"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesReggeaDancehall['titre']); ?></a></p>
                             </div>
                             <?php } $reqReggeaDancehall->closeCursor(); ?>
                         </div>

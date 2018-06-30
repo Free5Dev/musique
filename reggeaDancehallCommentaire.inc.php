@@ -9,16 +9,16 @@
         $donneesFr=$reqFr->fetch();
     }
     else{
-       header("Location:rapFr.inc.php");
+       header("Location:rapAfro.inc.php");
     }
     
     
     //   requete Meme categorie
-    $reqMm=$bdd->prepare("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=2 AND z.id!=? ORDER BY id DESC LIMIT 1,5");
+    $reqMm=$bdd->prepare("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=4 AND z.id!=? ORDER BY id DESC LIMIT 1,5");
     $reqMm->execute(array($_GET['ref']));
     
      //   requete Meme artiste
-     $reqMArtiste=$bdd->prepare("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=2 AND z.id!=? ORDER BY id DESC LIMIT 6,6");
+     $reqMArtiste=$bdd->prepare("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=4 AND z.id!=? ORDER BY id DESC LIMIT 6,6");
     $reqMArtiste->execute(array($_GET['ref']));
       //   requete kbzTv
       $reqKbzTv=$bdd->query("SELECT k.id,k.titre,k.photoKbzTv,k.idMembre,date_format(dateTv,'Le %d/%m/%Y à %Hh%imin%ss') as dateTv,m.nom FROM kbzTv as k, membres as m WHERE k.idMembre=m.id order by id desc limit 1");
@@ -99,7 +99,7 @@
                             fjs.parentNode.insertBefore(js, fjs);
                             }(document, 'script', 'facebook-jssdk'));</script>
 
-                            <div class="fb-comments" data-href="http://localhost/musique/rapFrCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesFr['id']); ?>" data-width="100%" data-numposts="5"></div>
+                            <div class="fb-comments" data-href="http://localhost/musique/reggeaDancehallCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesFr['id']); ?>" data-width="100%" data-numposts="5"></div>
                        </p>
                    </div>
                    <!--  -->
@@ -110,8 +110,8 @@
                             <?php while($donneesMmArtiste=$reqMArtiste->fetch()) { ?>
                             <div class="col-sm-12 col-md-4 colMemeArtiste">
                                 <h5><?php echo htmlspecialchars($donneesMmArtiste['titre']); ?></h5>
-                                <p  class="img-fluid img-responsive"><a href="rapFrCommentaire.inc.php?ref=<?php echo $donneesMmArtiste['id']; ?>"><img src="<?php echo htmlspecialchars($donneesMmArtiste['photo']); ?>" alt=""></a></p>
-                                <p class="voir"><a href="rapFrCommentaire.inc.php?ref=<?php echo $donneesMmArtiste['id']; ?>" class="btn btn-success btn-sm">Voir détails</a></p>
+                                <p  class="img-fluid img-responsive"><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo $donneesMmArtiste['id']; ?>"><img src="<?php echo htmlspecialchars($donneesMmArtiste['photo']); ?>" alt=""></a></p>
+                                <p class="voir"><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo $donneesMmArtiste['id']; ?>" class="btn btn-success btn-sm">Voir détails</a></p>
                             </div>
                             <?php } $reqMArtiste->closeCursor(); ?>
                         </div>
@@ -125,8 +125,8 @@
                     <?php while($donneesMm=$reqMm->fetch()) { ?>
                     <div class="col-md-12 colCommentaire">
                        <h5><?php echo htmlspecialchars($donneesMm['titre']); ?></h5>
-                       <p  class="img-fluid img-responsive"><a href="rapFrCommentaire.inc.php?ref=<?php echo $donneesMm['id']; ?>"><img src="<?php echo htmlspecialchars($donneesMm['photo']); ?>" alt=""></a></p>
-                       <p class="voir"><a href="rapFrCommentaire.inc.php?ref=<?php echo $donneesMm['id']; ?>" class="btn btn-success btn-sm">Voir détails</a></p>
+                       <p  class="img-fluid img-responsive"><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo $donneesMm['id']; ?>"><img src="<?php echo htmlspecialchars($donneesMm['photo']); ?>" alt=""></a></p>
+                       <p class="voir"><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo $donneesMm['id']; ?>" class="btn btn-success btn-sm">Voir détails</a></p>
                    </div>
                     <?php } $reqMm->fetch(); ?>
                </div>
