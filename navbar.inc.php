@@ -37,13 +37,13 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">KbzTv</a>
+        <a class="nav-link" href="kbzTv.inc.php">KbzTv</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Blog</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Talent</a>
+        <a class="nav-link" href="kbzTalent.inc.php">Talent</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Shop</a>

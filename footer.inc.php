@@ -39,10 +39,10 @@
                <div class="col-sm-12 col-md-4 footerElement"  >
                    <h1>Liens utiles</h1>
                    <ul>
-                       <li><a href="http://"><i class="fas fa-tv"></i> KbzTv</a></li>
-                       <li><a href="http://"><i class="fab fa-blogger-b"></i> Blog</a></li>
-                       <li><a href="http://"><i class="fas fa-microphone-alt"></i> Talent</a></li>
-                       <li><a href="http://"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+                       <li><a href="kbzTv.inc.php"><i class="fas fa-tv"></i> KbzTv</a></li>
+                       <li><a href="kbzBlog.inc.php"><i class="fab fa-blogger-b"></i> Blog</a></li>
+                       <li><a href="kbzTalent.inc.php"><i class="fas fa-microphone-alt"></i> Talent</a></li>
+                       <li><a href="kbzShop.inc.php"><i class="fas fa-shopping-cart"></i> Shop</a></li>
                    </ul>
                    <ul>
                        <li><a href="rapUsa.inc.php"><i class="fas fa-headphones"></i> Rap Usa</a></li>
