@@ -19,7 +19,7 @@
      $reqTalent=$bdd->query("SELECT t.id,t.titre,t.biographie,t.photoTalent,t.nomTalent,t.idMembre,date_format(dateTalent,'Le %d/%m/%Y à %Hh%imin%ss') as dateTalent,m.nom FROM talent as t, membres as m WHERE t.idMembre=m.id order by id desc limit 1");
      $donneesTalent=$reqTalent->fetch();
       //   requete kbzTv
-      $reqKbzTv=$bdd->query("SELECT k.id,k.titre,k.photoKbzTv,k.idMembre,date_format(dateTv,'Le %d/%m/%Y à %Hh%imin%ss') as dateTv,m.nom FROM kbzTv as k, membres as m WHERE k.idMembre=m.id order by id desc limit 1");
+      $reqKbzTv=$bdd->query("SELECT k.id,k.titre,k.photoKbzTv,k.idMembre,date_format(dateTv,'Le %d/%m/%Y à %Hh%imin%ss') as dateTv,m.nom FROM kbztv as k, membres as m WHERE k.idMembre=m.id order by id desc limit 1");
       $donneesKbzTv=$reqKbzTv->fetch();
    // $donneesUsa=$reqUsa->fetch();
     // echo"<pre>";
@@ -60,9 +60,9 @@
     <section class="container-fluid fluidAccueil">
         <section class="row rowAccueil">
             <!-- ---------------------------------------banniere de gauche---------------------------------------- -->
-            <article class="col-sm-12 col-md-9 colAccueilGauche">
+            <article class="col-sm-12 col-md-9 colAccueilGauche" >
                 <!-- contenue de la banniere de gauche -->
-                <div class="row rowColAccueilGaucheElement">
+                <div class="row rowColAccueilGaucheElement" >
                     <div class="col col-md-12 colAccueilGaucheElementVideo">
                         <!-- contenue de colAccueilGaucheElementVideo -->
                         <h2><span class="text-danger">Artiste(s):</span> <?php echo htmlspecialchars($donneesUsaEtFr['nomArtiste']); ?> <span class="text-danger">Titre:</span> <?php echo htmlspecialchars($donneesUsaEtFr['titre']); ?></h2>
@@ -145,9 +145,9 @@
                 </div>
             </article>
             <!-- ----------------------------------------banniere de droite------------------------------ -->
-            <article class="col-sm-12 col-md-3 colAccueilDroite">
+            <article class="col-sm-12 col-md-3 colAccueilDroite" style="background-color:#fff;">
                <!-- contenu de la banniere de droite- -->
-                <div class="row rowColAccueilDroiteElement">
+                <div class="row rowColAccueilDroiteElement" style="background-color:#D3D3D3;">
                     <div class="col-md-12 colAccueilDroiteElementPub">
                         <h5><a href="contact.inc.php" target="_blank"><small>  Passer vos Pub c'est gratuit</small></a></h5>
                         <div class="pubSite img-responsive">

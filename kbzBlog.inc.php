@@ -1,11 +1,13 @@
 <?php 
     // appel de la function de connexion à la bdd
     require_once('connexion.inc.php');
-    // requete pour rap usa
-    $reqUsa=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=1 ORDER BY ID DESC LIMIT 8");
-    //   requete blog kbz
-    $reqBlog=$bdd->query("SELECT b.id,b.titre,b.commentaire,b.idMembre,b.urlBlog,b.photoBlog,date_format(dateBlog,'Le %d/%m/%Y à %Hh%imin%ss') as dateBlog,m.nom FROM blog as b, membres as m WHERE b.idMembre=m.id order by id desc limit 1");
-    $donneesBlog=$reqBlog->fetch();
+    // blog
+    $reqBlog=$bdd->query("SELECT b.id,b.titre,b.commentaire,b.idMembre,b.urlBlog,b.photoBlog,date_format(dateBlog,'Le %d/%m/%Y à %Hh%imin%ss') as dateBlog,m.nom FROM blog as b, membres as m WHERE b.idMembre=m.id order by id desc limit 8");
+    // requete pour rap Fr
+    $reqFr=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=2 ORDER BY ID DESC LIMIT 8");
+    //   requete rap afro
+    $reqAfro=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=3 ORDER BY ID DESC LIMIT 1");
+    $donneesAfro=$reqAfro->fetch();
      //   requete talent kbz
      $reqTalent=$bdd->query("SELECT t.id,t.titre,t.biographie,t.photoTalent,t.nomTalent,t.idMembre,date_format(dateTalent,'Le %d/%m/%Y à %Hh%imin%ss') as dateTalent,m.nom FROM talent as t, membres as m WHERE t.idMembre=m.id order by id desc limit 1");
      $donneesTalent=$reqTalent->fetch();
@@ -101,15 +103,15 @@
             <article class="col-sm-12 col-md-9 colRapUsaGauche">
                 <!-- contenue de la banniere de gauche -->
                 <div class="row rowColRapUsaGaucheElement">
-                <?php while($donneesUsa=$reqUsa->fetch()) { ?>
+                <?php while($donneesBlog=$reqBlog->fetch()) { ?>
                     <div class="col-sm-12 col-md-6 colRapUsaGaucheElementVideo">
                        
                         <div class="colRapUsaGaucheElementVideoElement">
-                            <h3><a href="rapUsaCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsa['id']); ?>"><span class="text-danger">Artiste(s):</span> <?php echo htmlspecialchars($donneesUsa['nomArtiste']); ?> <span class="text-danger">Titre:</span> <?php echo htmlspecialchars($donneesUsa['titre']); ?></a></h3>
+                            <h3 ><a href="kbzBlogCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>" class="text-danger" style="text-transform:uppercase;"><?php echo htmlspecialchars($donneesBlog['titre']); ?></h3>
                            
-                            <p id="img"><a href="rapUsaCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsa['id']); ?>"><img class="img-fluid img" src="<?php echo $donneesUsa['photo']; ?>" /></a></p>
-                            <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesUsa['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesUsa['datePub']); ?></small></p>
-                            <p class="p4"><a href="rapUsaCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsa['id']); ?>">Commentaires</a></p>
+                            <p id="img"><a href="kbzBlogCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>"><img class="img-fluid img" src="<?php echo $donneesBlog['photoBlog']; ?>" /></a></p>
+                            <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesBlog['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesBlog['dateBlog']); ?></small></p>
+                            <p class="p4"><a href="kbzBlogCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>">Commentaires</a></p>
                             <div class="row rowMusiqesBtnSociaux">
                                 <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
                                     <a class="btn btn-outline-primary btn-sm"><small>Partager sur Facebook</small></a>
@@ -124,7 +126,7 @@
                         </div>
                         
                     </div>
-                    <?php } $reqUsa->closeCursor(); ?>
+                    <?php } $reqBlog->closeCursor(); ?>
                 </div>
             </article>
             <!-- ----------------------------------------banniere de droite------------------------------ -->
@@ -181,10 +183,10 @@
                         </div>
                     </div>
                     <div class="col-md-12 colAccueilDroiteElementPub">
-                        <h5 style="background-color:red;color:#fff;"><a href="https://www.facebook.com/kjpprod/?ref=br_rs" target="_blank"><small><i class="fab fa-blogger"></i> Blog</small></a></h5>
+                        <h5 style="background-color:red;color:#fff;"><a href="kbzBlogCommentaire.inc.php?ref=<?php echo $donneesAfro['id']; ?>" target="_blank"><small><i class="fab fa-blogger"></i> Rap Afro</small></a></h5>
                         <div class="pubSite img-responsive">
-                            <h6><a href="" style=""><small><?php echo htmlspecialchars($donneesBlog['titre']); ?></small></a></h6>
-                            <a href="https://www.facebook.com/photo.php?fbid=10217202887850740&set=a.4549317097452.2189542.1427091102&type=3" title="Suivez" target="_blank"><img src="<?php echo $donneesBlog['photoBlog']; ?>" alt=""></a><br>
+                            <h6><a href="" style=""><small><?php echo htmlspecialchars($donneesAfro['titre']); ?></small></a></h6>
+                            <a href="kbzBlogCommentaire.inc.php?ref=<?php echo $donneesAfro['id']; ?>" title="Suivez" target="_blank"><img src="<?php echo $donneesAfro['photo']; ?>" alt=""></a><br>
                             <a href="" class="btn btn-outline-success " style="display:block;">Détails</a>
                         </div>
                     </div>

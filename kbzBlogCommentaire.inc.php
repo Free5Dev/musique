@@ -3,23 +3,23 @@
     require_once('connexion.inc.php');
     // verification de l'existance du lien 
     if(isset($_GET['ref'])){
-        // requete pour rap usa
-        $reqFr=$bdd->prepare("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.id=? ");
-        $reqFr->execute(array($_GET['ref']));
-        $donneesFr=$reqFr->fetch();
+        $reqBlog=$bdd->prepare("SELECT b.id,b.titre,b.commentaire,b.idMembre,b.urlBlog,b.photoBlog,date_format(dateBlog,'Le %d/%m/%Y à %Hh%imin%ss') as dateBlog,m.nom FROM blog as b, membres as m WHERE b.idMembre=m.id AND b.id=? ");
+        
+        $reqBlog->execute(array($_GET['ref']));
+        $donneesBlog=$reqBlog->fetch();
     }
     else{
-       header("Location:rapFr.inc.php");
+       header("Location:kbzBlog.inc.php");
     }
     
     
     //   requete Meme categorie
-    $reqMm=$bdd->prepare("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=2 AND z.id!=? ORDER BY id DESC LIMIT 1,5");
+    $reqMm=$bdd->prepare("SELECT b.id,b.titre,b.commentaire,b.idMembre,b.urlBlog,b.photoBlog,date_format(dateBlog,'Le %d/%m/%Y à %Hh%imin%ss') as dateBlog,m.nom FROM blog as b, membres as m WHERE b.idMembre=m.id AND b.id!=? ORDER BY id DESC LIMIT 1,5");
     $reqMm->execute(array($_GET['ref']));
     
-     //   requete Meme artiste
-     $reqMArtiste=$bdd->prepare("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=2 AND z.id!=? ORDER BY id DESC LIMIT 6,6");
-    $reqMArtiste->execute(array($_GET['ref']));
+     //   requete Meme blog
+     $reqMBlog=$bdd->prepare("SELECT b.id,b.titre,b.commentaire,b.idMembre,b.urlBlog,b.photoBlog,date_format(dateBlog,'Le %d/%m/%Y à %Hh%imin%ss') as dateBlog,m.nom FROM blog as b, membres as m WHERE b.idMembre=m.id AND b.id!=? ORDER BY id DESC LIMIT 6,6");
+    $reqMBlog->execute(array($_GET['ref']));
       //   requete kbzTv
       $reqKbzTv=$bdd->query("SELECT k.id,k.titre,k.photoKbzTv,k.idMembre,date_format(dateTv,'Le %d/%m/%Y à %Hh%imin%ss') as dateTv,m.nom FROM kbztv as k, membres as m WHERE k.idMembre=m.id order by id desc limit 1");
       $donneesKbzTv=$reqKbzTv->fetch();
@@ -112,11 +112,11 @@
             <article class="col-sm-12 col-md-9 colRapUsaGauche"  style="background-color:#fff;">
                <div class="row rowCommentaire"  style="background-color:#D3D3D3;">
                    <div class="col-md-12 colCommentaire">
-                        <h3><span class="text-danger">Artiste(s):</span> <?php echo htmlspecialchars($donneesFr['nomArtiste']); ?> <span class="text-danger">Titre:</span> <?php echo htmlspecialchars($donneesFr['titre']); ?></h3>
-                        <p id="iframe"><iframe class="img-fluid iframe" src="<?php echo $donneesFr['url']; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
+                        <h3><?php echo htmlspecialchars($donneesBlog['titre']); ?></h3>
+                        <p id="iframe"><iframe class="img-fluid iframe" src="<?php echo $donneesBlog['urlBlog']; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 
-                        <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesFr['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesFr['datePub']); ?></small></p>
-                        <p><strong class="text-danger">DESCRIPTION:</strong><?php echo nl2br(htmlspecialchars($donneesFr['description'])); ?></p>
+                        <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesBlog['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesBlog['dateBlog']); ?></small></p>
+                        <p><strong class="text-danger">DESCRIPTION:</strong><?php echo nl2br(htmlspecialchars($donneesBlog['commentaire'])); ?></p>
                         <div class="row rowMusiqesBtnSociaux">
                             <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
                                 <a class="btn btn-outline-primary btn-sm"><small>Partager sur Facebook</small></a>
@@ -142,7 +142,7 @@
                             fjs.parentNode.insertBefore(js, fjs);
                             }(document, 'script', 'facebook-jssdk'));</script>
 
-                            <div class="fb-comments" data-href="http://localhost/musique/rapFrCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesFr['id']); ?>" data-width="100%" data-numposts="5"></div>
+                            <div class="fb-comments" data-href="http://localhost/musique/rapAfroCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>" data-width="100%" data-numposts="5"></div>
                        </p>
                    </div>
                    <!--  -->
@@ -150,13 +150,13 @@
                    <div class="col-md-12 colCommentaire">
                         <h2>Du même Catégories </h2>
                         <div class="row rowMemeArtiste">
-                            <?php while($donneesMmArtiste=$reqMArtiste->fetch()) { ?>
+                            <?php while($donneesMBlog=$reqMBlog->fetch()) { ?>
                             <div class="col-sm-12 col-md-4 colMemeArtiste">
-                                <h5><?php echo htmlspecialchars($donneesMmArtiste['titre']); ?></h5>
-                                <p  class="img-fluid img-responsive"><a href="rapFrCommentaire.inc.php?ref=<?php echo $donneesMmArtiste['id']; ?>"><img src="<?php echo htmlspecialchars($donneesMmArtiste['photo']); ?>" alt=""></a></p>
-                                <p class="voir"><a href="rapFrCommentaire.inc.php?ref=<?php echo $donneesMmArtiste['id']; ?>" class="btn btn-success btn-sm">Voir détails</a></p>
+                                <h5><?php echo htmlspecialchars($donneesMBlog['titre']); ?></h5>
+                                <p  class="img-fluid img-responsive"><a href="kbzBlogCommentaire.inc.php?ref=<?php echo $donneesMBlog['id']; ?>"><img src="<?php echo htmlspecialchars($donneesMBlog['photoBlog']); ?>" alt=""></a></p>
+                                <p class="voir"><a href="kbzBlogCommentaire.inc.php?ref=<?php echo $donneesMBlog['id']; ?>" class="btn btn-success btn-sm">Voir détails</a></p>
                             </div>
-                            <?php } $reqMArtiste->closeCursor(); ?>
+                            <?php } $reqMBlog->closeCursor(); ?>
                         </div>
                    </div>
                </div>
@@ -168,8 +168,8 @@
                     <?php while($donneesMm=$reqMm->fetch()) { ?>
                     <div class="col-md-12 colCommentaire">
                        <h5><?php echo htmlspecialchars($donneesMm['titre']); ?></h5>
-                       <p  class="img-fluid img-responsive"><a href="rapFrCommentaire.inc.php?ref=<?php echo $donneesMm['id']; ?>"><img src="<?php echo htmlspecialchars($donneesMm['photo']); ?>" alt=""></a></p>
-                       <p class="voir"><a href="rapFrCommentaire.inc.php?ref=<?php echo $donneesMm['id']; ?>" class="btn btn-success btn-sm">Voir détails</a></p>
+                       <p  class="img-fluid img-responsive"><a href="kbzBlogCommentaire.inc.php?ref=<?php echo $donneesMm['id']; ?>"><img src="<?php echo htmlspecialchars($donneesMm['photoBlog']); ?>" alt=""></a></p>
+                       <p class="voir"><a href="kbzBlogCommentaire.inc.php?ref=<?php echo $donneesMm['id']; ?>" class="btn btn-success btn-sm">Voir détails</a></p>
                    </div>
                     <?php } $reqMm->fetch(); ?>
                </div>

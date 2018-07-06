@@ -40,13 +40,13 @@
         <a class="nav-link" href="kbzTv.inc.php">KbzTv</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Blog</a>
+        <a class="nav-link" href="kbzBlog.inc.php">Blog</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="kbzTalent.inc.php">Talent</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Shop</a>
+        <a class="nav-link" href="kbzShop.inc.php">Shop</a>
       </li>
 
     </ul>
