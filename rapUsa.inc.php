@@ -48,52 +48,51 @@
 </head>
 <body>
      <!-- inclusion du header -->
-     <?php include('header.inc.php'); ?>
+    <?php include('header.inc.php'); ?>
     <!-- navbar -->
     <!-- debut navabr -->
-   <nav class="navbar navbar-expand-lg navbar-light bg-light navbarMenu">
-  <a class="navbar-brand  text-danger" href="index.php">K.B.Z</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbarMenu">
+        <a class="navbar-brand  text-danger" href="index.php">K.B.Z</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Musiques
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="rapUsa.inc.php">Rap Usa</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="rapFr.inc.php">Rap Fr</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="rapAfro.inc.php">Rap Afro</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="reggeaDancehall.inc.php">Reggue Dancehall</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Musiques
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="rapUsa.inc.php">Rap Usa</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="rapFr.inc.php">Rap Fr</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="rapAfro.inc.php">Rap Afro</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="reggeaDancehall.inc.php">Reggue Dancehall</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="kbzTv.inc.php">KbzTv</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="kbzBlog.inc.php">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="kbzTalent.inc.php">Talent</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="kbzShop.inc.php">Shop</a>
+            </li>
+
+            </ul>
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="kbzTv.inc.php">KbzTv</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Blog</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="kbzTalent.inc.php">Talent</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Shop</a>
-      </li>
-
-    </ul>
-   
-  </div>
-</nav>
-<!--end navbar-->
+    </nav>
+    <!--end navbar-->
     <!-- section accueil -->
     <section class="container-fluid fluidAccueil">
         <section class="row rowAccueil">
@@ -165,27 +164,27 @@
                         </div>
                     </div> -->
                     <div class="col-md-12 colAccueilDroiteElementPub">
-                        <h5 style="background-color:red;color:#fff;"><a href="https://www.facebook.com/kjpprod/?ref=br_rs" target="_blank"><small><i class="fas fa-tv"></i> Kbz Tv</small></a></h5>
+                        <h5 style="background-color:red;color:#fff;"><a href="kbzTvCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesKbzTv['id']); ?>" target="_blank"><small><i class="fas fa-tv"></i> Kbz Tv</small></a></h5>
                         <div class="pubSite img-responsive">
-                        <h6><a href="" style=""><small><?php echo htmlspecialchars($donneesKbzTv['titre']); ?></small></a></h6>
-                            <a href="https://www.facebook.com/photo.php?fbid=10217202887850740&set=a.4549317097452.2189542.1427091102&type=3" title="Suivez" target="_blank"><img src="<?php echo $donneesKbzTv['photoKbzTv']; ?>" alt=""></a><br>
-                            <a href="" class="btn btn-outline-success " style="display:block;">Détails</a>
+                        <h6><a href="kbzTvCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesKbzTv['id']); ?>" style=""><small><?php echo htmlspecialchars($donneesKbzTv['titre']); ?></small></a></h6>
+                            <a href="kbzTvCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesKbzTv['id']); ?>" title="Suivez" target="_blank"><img src="<?php echo $donneesKbzTv['photoKbzTv']; ?>" alt=""></a><br>
+                            <a href="kbzTvCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesKbzTv['id']); ?>" class="btn btn-outline-success " style="display:block;">Détails</a>
                         </div>
                     </div>
                     <div class="col-md-12 colAccueilDroiteElementPub">
-                        <h5 style="background-color:red;color:#fff;"><a href="https://www.facebook.com/kjpprod/?ref=br_rs" target="_blank"><small><i class="fas fa-volume-up"></i> Kbz Talent</small></a></h5>
+                        <h5 style="background-color:red;color:#fff;"><a href="kbzTalentCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesTalent['id']); ?>" target="_blank"><small><i class="fas fa-volume-up"></i> Kbz Talent</small></a></h5>
                         <div class="pubSite img-responsive">
-                        <h6><a href="" style=""><small><?php echo htmlspecialchars($donneesTalent['titre']); ?></small></a></h6>
-                            <a href="https://www.facebook.com/photo.php?fbid=10217202887850740&set=a.4549317097452.2189542.1427091102&type=3" title="Suivez" target="_blank"><img src="<?php echo $donneesTalent['photoTalent']; ?>" alt=""></a><br>
-                            <a href="" class="btn btn-outline-success " style="display:block;">Détails</a>
+                        <h6><a href="kbzTalentCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesTalent['id']); ?>" style=""><small><?php echo htmlspecialchars($donneesTalent['titre']); ?></small></a></h6>
+                            <a href="kbzTalentCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesTalent['id']); ?>" title="Suivez" target="_blank"><img src="<?php echo $donneesTalent['photoTalent']; ?>" alt=""></a><br>
+                            <a href="kbzTalentCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesTalent['id']); ?>" class="btn btn-outline-success " style="display:block;">Détails</a>
                         </div>
                     </div>
                     <div class="col-md-12 colAccueilDroiteElementPub">
-                        <h5 style="background-color:red;color:#fff;"><a href="https://www.facebook.com/kjpprod/?ref=br_rs" target="_blank"><small><i class="fab fa-blogger"></i> Blog</small></a></h5>
+                        <h5 style="background-color:red;color:#fff;"><a href="kbzBlogCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>" target="_blank"><small><i class="fab fa-blogger"></i> Blog</small></a></h5>
                         <div class="pubSite img-responsive">
-                            <h6><a href="" style=""><small><?php echo htmlspecialchars($donneesBlog['titre']); ?></small></a></h6>
-                            <a href="https://www.facebook.com/photo.php?fbid=10217202887850740&set=a.4549317097452.2189542.1427091102&type=3" title="Suivez" target="_blank"><img src="<?php echo $donneesBlog['photoBlog']; ?>" alt=""></a><br>
-                            <a href="" class="btn btn-outline-success " style="display:block;">Détails</a>
+                            <h6><a href="kbzBlogCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>" style=""><small><?php echo htmlspecialchars($donneesBlog['titre']); ?></small></a></h6>
+                            <a href="kbzBlogCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>" title="Suivez" target="_blank"><img src="<?php echo $donneesBlog['photoBlog']; ?>" alt=""></a><br>
+                            <a href="kbzBlogCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>" class="btn btn-outline-success " style="display:block;">Détails</a>
                         </div>
                     </div>
     

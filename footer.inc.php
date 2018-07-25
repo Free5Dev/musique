@@ -55,7 +55,7 @@
                    <h1>Contact</h1>
                    <ul>
                        <li><a href="mailto:kbzOfficiel@gmail.com"><i class="far fa-envelope"></i> kbzOfficiel@gmail.com</a></li>
-                       <li><a href="contact;inc.php"><i class="far fa-share-square"></i> Formulaire de Contact</a></li>
+                       <li><a href="contact.inc.php"><i class="far fa-share-square"></i> Formulaire de Contact</a></li>
                    </ul>
                    <form action="" class="form-inline formNewsLetter">
                        <input type="text" name="" id="" placeholder="NewsLetter..." class="form-control inputNewsLetter">
