@@ -7,6 +7,9 @@
         $reqFr=$bdd->prepare("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.id=? ");
         $reqFr->execute(array($_GET['ref']));
         $donneesFr=$reqFr->fetch();
+        if(empty($donneesFr)){
+            header('Location:reggeaDancehall.inc.php');
+        }
     }
     else{
        header("Location:rapAfro.inc.php");
@@ -151,7 +154,7 @@
                         <div class="row rowMemeArtiste">
                             <?php while($donneesMmArtiste=$reqMArtiste->fetch()) { ?>
                             <div class="col-sm-12 col-md-4 colMemeArtiste">
-                                <h5><?php echo htmlspecialchars($donneesMmArtiste['titre']); ?></h5>
+                                <h5><span class="text-danger"><?php echo htmlspecialchars($donneesMmArtiste['nomArtiste']); ?></span> <?php echo htmlspecialchars($donneesMmArtiste['titre']); ?></h5>
                                 <p  class="img-fluid img-responsive"><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo $donneesMmArtiste['id']; ?>"><img src="<?php echo htmlspecialchars($donneesMmArtiste['photo']); ?>" alt=""></a></p>
                                 <p class="voir"><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo $donneesMmArtiste['id']; ?>" class="btn btn-success btn-sm">Voir détails</a></p>
                             </div>
@@ -166,7 +169,7 @@
                 <h2>Même Categories</h2>  
                     <?php while($donneesMm=$reqMm->fetch()) { ?>
                     <div class="col-md-12 colCommentaire">
-                       <h5><?php echo htmlspecialchars($donneesMm['titre']); ?></h5>
+                       <h5><span class="text-danger"><?php echo htmlspecialchars($donneesMm['nomArtiste']); ?></span> <?php echo htmlspecialchars($donneesMm['titre']); ?></h5>
                        <p  class="img-fluid img-responsive"><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo $donneesMm['id']; ?>"><img src="<?php echo htmlspecialchars($donneesMm['photo']); ?>" alt=""></a></p>
                        <p class="voir"><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo $donneesMm['id']; ?>" class="btn btn-success btn-sm">Voir détails</a></p>
                    </div>

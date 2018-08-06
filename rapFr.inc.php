@@ -109,7 +109,7 @@
                             <p id="img"><a href="rapFrCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesFr['id']); ?>"><img class="img-fluid img" src="<?php echo $donneesFr['photo']; ?>" /></a></p>
                             <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesFr['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesFr['datePub']); ?></small></p>
                             <p class="p4"><a href="rapFrCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesFr['id']); ?>">Commentaires</a></p>
-                            <div class="row rowMusiqesBtnSociaux">
+                            <!-- <div class="row rowMusiqesBtnSociaux">
                                 <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
                                     <a class="btn btn-outline-primary btn-sm"><small>Partager sur Facebook</small></a>
                                 </div>
@@ -119,7 +119,7 @@
                                 <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
                                     <a class="btn btn-outline-success btn-sm"><small>Partager sur Tweeter</small></a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         
                     </div>

@@ -7,6 +7,9 @@
         $reqUsa=$bdd->prepare("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.id=? ");
         $reqUsa->execute(array($_GET['ref']));
         $donneesUsa=$reqUsa->fetch();
+        if(empty($donneesUsa)){
+            header('Location:rapUsa.inc.php');
+        }
     }
     else{
        header("Location:rapUsa.inc.php");

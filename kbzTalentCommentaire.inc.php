@@ -8,7 +8,9 @@
         $reqKbzTalent=$bdd->prepare("SELECT t.id,t.titre,t.nomTalent,t.biographie,t.idMembre,t.url,t.photoTalent,date_format(dateTalent,'Le %d/%m/%Y à %Hh%imin%ss') as dateTalent,m.nom FROM talent as t, membres as m WHERE t.idMembre=m.id AND t.id=?");
         $reqKbzTalent->execute(array($_GET['ref']));
         $donneesKbzTalent=$reqKbzTalent->fetch();
-
+        if(empty($donneesKbzTalent)){
+            header('Location:kbzTalent.inc.php');
+        }
     }
     else{
        header("Location:kbzTalent.inc.php");

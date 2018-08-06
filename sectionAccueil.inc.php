@@ -5,7 +5,7 @@
     $reqUsaEtFr=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=1 ORDER BY ID DESC LIMIT 1");
     $donneesUsaEtFr=$reqUsaEtFr->fetch();
     // requete pour rap usa
-    $reqUsa=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=1 ORDER BY ID DESC LIMIT 1,3");
+    $reqUsa=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=1 ORDER BY ID DESC LIMIT 3");//limit 1,3
     // requete pour rap fr
     $reqFr=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=2 ORDER BY ID DESC LIMIT 3");
      // requete pour rap Afro
@@ -72,13 +72,23 @@
                         <!-- button reseaux sociaux -->
                         <div class="row rowAccueilBtnSociaux">
                             <div class="col-md-4 col-sm-4 img-fluid">
-                                <button class="btn btn-outline-primary">Partager sur Facebook</button>
+                                <!-- plegun partage facebook -->
+                                    <div id="fb-root"></div>
+                                    <script>(function(d, s, id) {
+                                    var js, fjs = d.getElementsByTagName(s)[0];
+                                    if (d.getElementById(id)) return;
+                                    js = d.createElement(s); js.id = id;
+                                    js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.1';
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                    }(document, 'script', 'facebook-jssdk'));</script>
+                                <!-- end plegun partage facebook -->
+                                <button type="submit" href="http://www.saidsoumah.com/sectionAccueil.inc.php" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.saidsoumah.com%2FsectionAccueil.inc.php&amp;src=sdkpreparse" class="btn btn-outline-primary"> Partager sur Facebook </a></button>
                             </div>
                             <div class="col-md-4 col-sm-4 img-fluid">
-                                <button class="btn btn-outline-danger">Partager sur Gmail</button>
+                                <button type="submit" ><a  href="https://plus.google.com/share?url=http://www.saidsoumah.com/sectionAccueil.inc.php" class="btn btn-outline-danger" target="_blank">Partager sur Google+ </a></button>
                             </div>
                             <div class="col-md-4 col-sm-4 img-fluid">
-                                <button class="btn btn-outline-success">Partager sur Tweeter</button>
+                                <button type="submit"> <a href="https://twitter.com/intent/tweet?text=<?php echo 'Découvrer le clip de :'.$donneesUsaEtFr['nomArtiste'].' '.$donneesUsaEtFr['titre']; ?> via=KBZOfficial&url=<?php echo $_SERVER['PHP_SELF']; ?>" class="btn btn-outline-success" target="_blank"> Partager sur Tweeter </a></button>
                             </div>
                         </div>
                     </div>

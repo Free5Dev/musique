@@ -31,7 +31,9 @@
     <!-- inclusion du header -->
     <?php include('header.inc.php'); ?>
     <!-- navbar -->
-    <?php include('navbar.inc.php'); ?>
+    <!-- debut navabr -->
+    <?php include("navbar.inc.php"); ?>
+    <!--end navbar-->
     <!-- section -->
    <?php include('sectionAccueil.inc.php'); ?>
    

@@ -109,7 +109,7 @@
                             <p id="img"><a href="rapAfroCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesAfro['id']); ?>"><img class="img-fluid img" src="<?php echo $donneesAfro['photo']; ?>" /></a></p>
                             <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesAfro['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesAfro['datePub']); ?></small></p>
                             <p class="p4"><a href="rapAfroCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesAfro['id']); ?>">Commentaires</a></p>
-                            <div class="row rowMusiqesBtnSociaux">
+                            <!-- <div class="row rowMusiqesBtnSociaux">
                                 <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
                                     <a class="btn btn-outline-primary btn-sm"><small>Partager sur Facebook</small></a>
                                 </div>
@@ -119,7 +119,7 @@
                                 <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
                                     <a class="btn btn-outline-success btn-sm"><small>Partager sur Tweeter</small></a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         
                     </div>
@@ -164,27 +164,27 @@
                         </div>
                     </div> -->
                     <div class="col-md-12 colAccueilDroiteElementPub">
-                        <h5 style="background-color:red;color:#fff;"><a href="https://www.facebook.com/kjpprod/?ref=br_rs" target="_blank"><small><i class="fas fa-tv"></i> Kbz Tv</small></a></h5>
+                        <h5 style="background-color:red;color:#fff;"><a href="kbzTvCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesKbzTv['id']); ?>" target="_blank"><small><i class="fas fa-tv"></i> Kbz Tv</small></a></h5>
                         <div class="pubSite img-responsive">
-                        <h6><a href="" style=""><small><?php echo htmlspecialchars($donneesKbzTv['titre']); ?></small></a></h6>
-                            <a href="https://www.facebook.com/photo.php?fbid=10217202887850740&set=a.4549317097452.2189542.1427091102&type=3" title="Suivez" target="_blank"><img src="<?php echo $donneesKbzTv['photoKbzTv']; ?>" alt=""></a><br>
-                            <a href="" class="btn btn-outline-success " style="display:block;">Détails</a>
+                        <h6><a href="kbzTvCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesKbzTv['id']); ?>" style=""><small><?php echo htmlspecialchars($donneesKbzTv['titre']); ?></small></a></h6>
+                            <a href="kbzTvCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesKbzTv['id']); ?>" title="Suivez" target="_blank"><img src="<?php echo $donneesKbzTv['photoKbzTv']; ?>" alt=""></a><br>
+                            <a href="kbzTvCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesKbzTv['id']); ?>" class="btn btn-outline-success " style="display:block;">Détails</a>
                         </div>
                     </div>
                     <div class="col-md-12 colAccueilDroiteElementPub">
-                        <h5 style="background-color:red;color:#fff;"><a href="https://www.facebook.com/kjpprod/?ref=br_rs" target="_blank"><small><i class="fas fa-volume-up"></i> Kbz Talent</small></a></h5>
+                        <h5 style="background-color:red;color:#fff;"><a href="kbzTalentCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesTalent['id']); ?>" target="_blank"><small><i class="fas fa-volume-up"></i> Kbz Talent</small></a></h5>
                         <div class="pubSite img-responsive">
-                        <h6><a href="" style=""><small><?php echo htmlspecialchars($donneesTalent['titre']); ?></small></a></h6>
-                            <a href="https://www.facebook.com/photo.php?fbid=10217202887850740&set=a.4549317097452.2189542.1427091102&type=3" title="Suivez" target="_blank"><img src="<?php echo $donneesTalent['photoTalent']; ?>" alt=""></a><br>
-                            <a href="" class="btn btn-outline-success " style="display:block;">Détails</a>
+                        <h6><a href="kbzTalentCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesTalent['id']); ?>" style=""><small><?php echo htmlspecialchars($donneesTalent['titre']); ?></small></a></h6>
+                            <a href="kbzTalentCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesTalent['id']); ?>" title="Suivez" target="_blank"><img src="<?php echo $donneesTalent['photoTalent']; ?>" alt=""></a><br>
+                            <a href="kbzTalentCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesTalent['id']); ?>" class="btn btn-outline-success " style="display:block;">Détails</a>
                         </div>
                     </div>
                     <div class="col-md-12 colAccueilDroiteElementPub">
-                        <h5 style="background-color:red;color:#fff;"><a href="https://www.facebook.com/kjpprod/?ref=br_rs" target="_blank"><small><i class="fab fa-blogger"></i> Blog</small></a></h5>
+                        <h5 style="background-color:red;color:#fff;"><a href="kbzBlogCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>" target="_blank"><small><i class="fab fa-blogger"></i> Blog</small></a></h5>
                         <div class="pubSite img-responsive">
-                            <h6><a href="" style=""><small><?php echo htmlspecialchars($donneesBlog['titre']); ?></small></a></h6>
-                            <a href="https://www.facebook.com/photo.php?fbid=10217202887850740&set=a.4549317097452.2189542.1427091102&type=3" title="Suivez" target="_blank"><img src="<?php echo $donneesBlog['photoBlog']; ?>" alt=""></a><br>
-                            <a href="" class="btn btn-outline-success " style="display:block;">Détails</a>
+                            <h6><a href="kbzBlogCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>" style=""><small><?php echo htmlspecialchars($donneesBlog['titre']); ?></small></a></h6>
+                            <a href="kbzBlogCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>" title="Suivez" target="_blank"><img src="<?php echo $donneesBlog['photoBlog']; ?>" alt=""></a><br>
+                            <a href="kbzBlogCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>" class="btn btn-outline-success " style="display:block;">Détails</a>
                         </div>
                     </div>
     

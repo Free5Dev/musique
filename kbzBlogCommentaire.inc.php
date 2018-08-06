@@ -7,6 +7,9 @@
         
         $reqBlog->execute(array($_GET['ref']));
         $donneesBlog=$reqBlog->fetch();
+        if(empty($donneesBlog)){
+            header('Location:kbzBlog.inc.php');
+        }
     }
     else{
        header("Location:kbzBlog.inc.php");

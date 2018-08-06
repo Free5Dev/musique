@@ -147,6 +147,11 @@ header{
     margin-bottom: 10px;
     /* border:1px solid green; */
 }
+.rowAccueilBtnSociaux button{
+    border:none;
+    color: #fff;
+    background-color: #fff;
+}
 .colAccueilGaucheElementVideo{
     /* height: 600px; */
 }
