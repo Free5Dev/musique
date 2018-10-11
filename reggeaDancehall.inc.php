@@ -2,7 +2,7 @@
     // appel de la function de connexion à la bdd
     require_once('connexion.inc.php');
     // requete pour rap usa
-    $reqReggeaDancehall=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=4 ORDER BY ID DESC LIMIT 8");
+    $reqReggeaDancehall=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%M/%Y à %Hh%i') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=4 ORDER BY ID DESC LIMIT 15");
     //   requete blog kbz
     $reqBlog=$bdd->query("SELECT b.id,b.titre,b.commentaire,b.idMembre,b.urlBlog,b.photoBlog,date_format(dateBlog,'Le %d/%m/%Y à %Hh%imin%ss') as dateBlog,m.nom FROM blog as b, membres as m WHERE b.idMembre=m.id order by id desc limit 1");
     $donneesBlog=$reqBlog->fetch();
@@ -101,13 +101,14 @@
                 <!-- contenue de la banniere de gauche -->
                 <div class="row rowColRapUsaGaucheElement">
                 <?php while($donneesReggeaDancehall=$reqReggeaDancehall->fetch()) { ?>
-                    <div class="col-sm-12 col-md-6 colRapUsaGaucheElementVideo">
+                    <div class="col-sm-12 col-md-4 colRapUsaGaucheElementVideo">
                        
                         <div class="colRapUsaGaucheElementVideoElement">
-                            <h3><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesReggeaDancehall['id']); ?>"><span class="text-danger">Artiste(s):</span> <?php echo htmlspecialchars($donneesReggeaDancehall['nomArtiste']); ?> <span class="text-danger">Titre:</span> <?php echo htmlspecialchars($donneesReggeaDancehall['titre']); ?></a></h3>
+                           
                            
                             <p id="img"><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesReggeaDancehall['id']); ?>"><img class="img-fluid img" src="<?php echo $donneesReggeaDancehall['photo']; ?>" /></a></p>
-                            <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesReggeaDancehall['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesReggeaDancehall['datePub']); ?></small></p>
+                            <p class="p1"><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesReggeaDancehall['datePub']); ?></small></p>
+                            <p><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesReggeaDancehall['id']); ?>"><?php echo htmlspecialchars($donneesReggeaDancehall['nomArtiste']); ?>-<?php echo htmlspecialchars($donneesReggeaDancehall['titre']); ?></a></p>
                             <p class="p4"><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesReggeaDancehall['id']); ?>">Commentaires</a></p>
                             <!-- <div class="row rowMusiqesBtnSociaux">
                                 <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">

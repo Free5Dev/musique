@@ -84,10 +84,12 @@ header{
     color: #333;
     font-family:'Kaushan Script', cursive;
     text-transform: uppercase;
+    font-weight: bold;
 }
 .navbarMenu .nav-link:hover{
     border-bottom: 1px solid #333;
     color: #333;
+   
 }
 .navbarMenu .dropdown-item:hover{
     background-color: #333;
@@ -125,6 +127,38 @@ header{
     font-size: 1.2em;
     text-transform: uppercase;
     margin-bottom: 0;
+    font-weight: bold;
+}
+.colAccueilGaucheElementVideo:nth-child(1) h2:nth-child(1){
+    margin: 10px 0px 10px 0px;
+    text-align: left;
+}
+.colAccueilGaucheElementVideo:nth-child(1) h2:nth-child(1) span{
+    margin: 10px 0px 10px 0px;
+    text-align: left;
+    border:1px double black;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 1;
+}
+.colAccueilGaucheElementVideo .p4 {
+    margin: 25px 0px 25px 0px;
+}
+.colAccueilGaucheElementVideo .p4  a{
+    text-transform: uppercase;
+    font-size: 1.2em;
+    /* color: #000; */
+    /* text-shadow: 3px 3px 3px black; */
+    font-weight: bold;
+}
+
+.colAccueilGaucheElementVideo:nth-child(1) .text-small{
+    margin-top: 0;
+    text-align: left;
+}
+.pIframe{
+    margin-bottom: 0;
+    font-size: 0.2em;
 }
 .colAccueilGaucheElementVideo:nth-child(1) p{
     font-size: 1em;
@@ -133,8 +167,10 @@ header{
     margin-bottom: 0;
 }
 .colAccueilGaucheElementVideo:nth-child(1) .iframe{
-    width: 900px;
-    height: 400px;
+    /* width: 900px; */
+    width: 100%;
+    /* height: 400px; */
+    height: 470px;
     border:1px solid #D3D3D3;
 }
 .colAccueilGaucheElementVideo:nth-child(1) .p4{
@@ -179,16 +215,23 @@ header{
     margin-bottom: 0;
     text-transform: uppercase;
     background-color: #fff;
-    padding: 5px 2px 5px 2px;
+    padding: 25px;
+   
     
+}
+.colHit p a{
+    color: #000;
+    font-weight: bold;
 }
 .colHit p a:hover{
     border-bottom:1px solid black;
+    color: #000;
+    font-weight: bold;
 }
 .colHit .photo{
     width: 100%;
     max-width: 100%;
-    padding:10px 0px 10px 0px;
+    padding:10px 5px 10px 5px;
     overflow: hidden;
 }
 .colHit .photo img{
@@ -196,11 +239,12 @@ header{
     max-width: 100%;
     transition: 0.75s;
     /* border:1px solid red; */
+    padding: 5px;
 }
 .colHit .photo:hover img{
     transform: scale(1.2);
-    
 }
+
 /* ---------------------------------------------------RAP USA,Rap Fr,Rap Afro,Reggea Danchella design gleobal ---------------------------------- */
 .rowColRapUsaGaucheElement{
    /* border:1px solid red; */
@@ -210,10 +254,11 @@ header{
     margin-bottom: 5px;
     padding: 0;
 }
+
 .colRapUsaGaucheElementVideoElement{
     background-color: #fff;
-    margin: 5px;
-    padding: 5px;
+    margin:5px;
+    padding:  15px 5px 15px 5px;
 }
 .colRapUsaGaucheElementVideoElement h3{
     font-size: 1.2em;
@@ -224,9 +269,10 @@ header{
 }
 .colRapUsaGaucheElementVideoElement .p1{
     margin-top: 0;
-    text-align: center;
-    font-size: 1em;
+    text-align: left;
+    font-size: 0.7em;
     margin-bottom: 15px;
+    font-weight: bold;
 }
 .colRapUsaGaucheElementVideoElement #img{
     text-align: center;
@@ -244,9 +290,18 @@ header{
 .colRapUsaGaucheElementVideoElement #img:hover .img{
     transform: scale(1.2);
 }
-.colRapUsaGaucheElementVideoElement .p4{
-    text-transform: uppercase;
+.colRapUsaGaucheElementVideoElement p {
     text-align: center;
+    color: #000;
+    font-weight: bold;
+    margin: 20px 0px 20px 0px;
+}
+.colRapUsaGaucheElementVideoElement p a{
+    color: #000;
+    text-transform: uppercase;
+}
+.colRapUsaGaucheElementVideoElement p a:hover{
+    text-decoration: underline;
 }
 .colRapUsaGaucheElementVideoElement .p4 a{
     color:red;
@@ -417,6 +472,38 @@ header{
 .footer figure a:nth-child(2):hover,.footer figure a:nth-child(3):hover{
     color: red;
 }
+/* ----------------------------------------------------CONTACT--------------------------------------------- */
+.fluidContact{
+    /* padding: 10px; */
+    margin: 5px;
+}
+.fluidContact h1{
+   text-align: center;
+   text-transform: uppercase;
+   font-family: 'Trebuchet MS','Times New Roman', Arial, sans-serif;
+   color: red;
+}
+.fluidContact h2{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    
+}
+.rowContact{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.colContact{
+    /* border:1px solid #000; */
+    /* padding: 15px; */
+}
+.colContact a{
+    font-weight: bold;
+    display: flex;
+    color: maroon;
+    letter-spacing: 1;
+}
+
 /* ----------------------------------------les media queries -------------------------------------------------*/
 @media all and (max-width:1024px){
     /* entete */

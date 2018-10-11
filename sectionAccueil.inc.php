@@ -2,8 +2,8 @@
     // appel de la function de connexion à la bdd
     require_once('connexion.inc.php');
     // requete de select à la bdd des hit rap usa and rap fr
-    $reqUsaEtFr=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=1 ORDER BY ID DESC LIMIT 1");
-    $donneesUsaEtFr=$reqUsaEtFr->fetch();
+    $reqUsaEtFrKbzTv=$bdd->query("SELECT k.id,k.titre,k.invite,k.url,k.description,k.presentatrice,m.nom,date_format(dateTv, 'Le %d/%M/%Y, %H:%i') as dateTv FROM kbztv as k,membres as m WHERE k.idmembre=m.id  ORDER BY ID DESC LIMIT 1");
+    $donneesUsaEtFrKbzTv=$reqUsaEtFrKbzTv->fetch();
     // requete pour rap usa
     $reqUsa=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=1 ORDER BY ID DESC LIMIT 3");//limit 1,3
     // requete pour rap fr
@@ -65,10 +65,11 @@
                 <div class="row rowColAccueilGaucheElement" >
                     <div class="col col-md-12 colAccueilGaucheElementVideo">
                         <!-- contenue de colAccueilGaucheElementVideo -->
-                        <h2><span class="text-danger">Artiste(s):</span> <?php echo htmlspecialchars($donneesUsaEtFr['nomArtiste']); ?> <span class="text-danger">Titre:</span> <?php echo htmlspecialchars($donneesUsaEtFr['titre']); ?></h2>
-                        <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesUsaEtFr['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesUsaEtFr['datePub']); ?></small></p>
-                        <p><iframe class="img-fluid iframe" src="<?php echo $donneesUsaEtFr['url']; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
-                        <p class="p4"><a href="rapUsaCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsaEtFr['id']); ?>">Commentaires</a></p>
+                       <h2><span><?php echo htmlspecialchars($donneesUsaEtFrKbzTv['invite']); ?></span></h2>
+                        <p class="pIframe"><iframe class="img-fluid iframe" src="<?php echo $donneesUsaEtFrKbzTv['url']; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
+                        <p class="text-small"><?php echo htmlspecialchars($donneesUsaEtFrKbzTv['dateTv']); ?></p>
+                         <h2><?php echo htmlspecialchars($donneesUsaEtFrKbzTv['titre']); ?><?php echo htmlspecialchars($donneesUsaEtFrKbzTv['titre']); ?></h2> 
+                        <p class="p4"><a href="kbzTvCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsaEtFrKbzTv['id']); ?>">Commentaires</a></p>
                         <!-- button reseaux sociaux -->
                         <div class="row rowAccueilBtnSociaux">
                             <div class="col-md-4 col-sm-4 img-fluid">
@@ -88,7 +89,7 @@
                                 <button type="submit" ><a  href="https://plus.google.com/share?url=http://www.saidsoumah.com/sectionAccueil.inc.php" class="btn btn-outline-danger" target="_blank">Partager sur Google+ </a></button>
                             </div>
                             <div class="col-md-4 col-sm-4 img-fluid">
-                                <button type="submit"> <a href="https://twitter.com/intent/tweet?text=<?php echo 'Découvrer le clip de :'.$donneesUsaEtFr['nomArtiste'].' '.$donneesUsaEtFr['titre']; ?> via=KBZOfficial&url=<?php echo $_SERVER['PHP_SELF']; ?>" class="btn btn-outline-success" target="_blank"> Partager sur Tweeter </a></button>
+                                <button type="submit"> <a href="https://twitter.com/intent/tweet?text=<?php echo 'Découvrer le clip de :'.$donneesUsaEtFrKbzTv['invite'].' '.$donneesUsaEtFrKbzTv['titre']; ?> via=KBZOfficial&url=<?php echo $_SERVER['PHP_SELF']; ?>" class="btn btn-outline-success" target="_blank"> Partager sur Tweeter </a></button>
                             </div>
                         </div>
                     </div>
@@ -98,9 +99,9 @@
                         <div class="row rowHit">
                             <?php while($donneesUsa=$reqUsa->fetch()) { ?>
                             <div class="col-sm-12 col-md-4 colHit">
-                                <p><a href="rapUsaCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsa['id']); ?>"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesUsa['nomArtiste']); ?></a></p>
+                               
                                 <p class="photo"><a href="rapUsaCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsa['id']); ?>"><img src="<?php echo htmlspecialchars($donneesUsa['photo']); ?>" alt=""></a></p>
-                                <p><a href="rapUsaCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsa['id']); ?>"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesUsa['titre']); ?></a></p>
+                                <p><a href="rapUsaCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsa['id']); ?>"><?php echo htmlspecialchars($donneesUsa['nomArtiste']); ?>-<?php echo htmlspecialchars($donneesUsa['titre']); ?></a></p>
                             </div>
                             <?php } $reqUsa->closeCursor(); ?>
                         </div>
@@ -113,9 +114,9 @@
                         <div class="row rowHit">
                             <?php while($donneesFr=$reqFr->fetch()) { ?>
                             <div class="col-sm-12 col-md-4 colHit">
-                                <p><a href="rapFrCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesFr['id']); ?>"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesFr['nomArtiste']); ?></a></p>
+                               
                                 <p class="photo"><a href="rapFrCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesFr['id']); ?>"><img src="<?php echo htmlspecialchars($donneesFr['photo']); ?>" alt=""></a></p>
-                                <p><a href="rapFrCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesFr['id']); ?>"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesFr['titre']); ?></a></p>
+                                <p><a href="rapFrCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesFr['id']); ?>"><?php echo htmlspecialchars($donneesFr['nomArtiste']); ?>-<?php echo htmlspecialchars($donneesFr['titre']); ?></a></p>
                             </div>
                             <?php } $reqFr->closeCursor(); ?>
                         </div>
@@ -128,9 +129,9 @@
                         <div class="row rowHit">
                             <?php while($donneesAfro=$reqAfro->fetch()) { ?>
                             <div class="col-sm-12 col-md-4 colHit">
-                                <p><a href="rapAfroCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesAfro['id']); ?>"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesAfro['nomArtiste']); ?></a></p>
+                               
                                 <p class="photo"><a href="rapAfroCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesAfro['id']); ?>"><img src="<?php echo htmlspecialchars($donneesAfro['photo']); ?>" alt=""></a></p>
-                                <p><a href="rapAfroCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesAfro['id']); ?>"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesAfro['titre']); ?></a></p>
+                                <p><a href="rapAfroCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesAfro['id']); ?>"><?php echo htmlspecialchars($donneesAfro['nomArtiste']); ?>-<?php echo htmlspecialchars($donneesAfro['titre']); ?></a></p>
                             </div>
                             <?php } $reqAfro->closeCursor(); ?>
                         </div>
@@ -143,9 +144,9 @@
                         <div class="row rowHit">
                             <?php while($donneesReggeaDancehall=$reqReggeaDancehall->fetch()) { ?>
                             <div class="col-sm-12 col-md-4 colHit">
-                                <p><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesReggeaDancehall['id']); ?>"><strong class="text-danger">Artiste(s):</strong> <?php echo htmlspecialchars($donneesReggeaDancehall['nomArtiste']); ?></a></p>
+                                
                                 <p class="photo"><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesReggeaDancehall['id']); ?>"><img src="<?php echo htmlspecialchars($donneesReggeaDancehall['photo']); ?>" alt=""></a></p>
-                                <p><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesReggeaDancehall['id']); ?>"><strong class="text-danger">Titre:</strong> <?php echo htmlspecialchars($donneesReggeaDancehall['titre']); ?></a></p>
+                                <p><a href="reggeaDancehallCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesReggeaDancehall['id']); ?>"><?php echo htmlspecialchars($donneesReggeaDancehall['nomArtiste']); ?>-<?php echo htmlspecialchars($donneesReggeaDancehall['titre']); ?></a></p>
                             </div>
                             <?php } $reqReggeaDancehall->closeCursor(); ?>
                         </div>

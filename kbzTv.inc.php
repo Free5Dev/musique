@@ -59,7 +59,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
@@ -76,7 +76,7 @@
                 <a class="dropdown-item" href="reggeaDancehall.inc.php">Reggue Dancehall</a>
                 </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="kbzTv.inc.php">KbzTv</a>
             </li>
             <li class="nav-item">

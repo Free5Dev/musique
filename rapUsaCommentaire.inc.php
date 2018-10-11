@@ -4,7 +4,7 @@
     // verification de l'existance du lien 
     if(isset($_GET['ref'])){
         // requete pour rap usa
-        $reqUsa=$bdd->prepare("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.id=? ");
+        $reqUsa=$bdd->prepare("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%i') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.id=? ");
         $reqUsa->execute(array($_GET['ref']));
         $donneesUsa=$reqUsa->fetch();
         if(empty($donneesUsa)){
@@ -114,7 +114,7 @@
             <article class="col-sm-12 col-md-9 colRapUsaGauche"  style="background-color:#fff;">
                <div class="row rowCommentaire"  style="background-color:#D3D3D3;">
                    <div class="col-md-12 colCommentaire">
-                        <h3><span class="text-danger">Artiste(s):</span> <?php echo htmlspecialchars($donneesUsa['nomArtiste']); ?> <span class="text-danger">Titre:</span> <?php echo htmlspecialchars($donneesUsa['titre']); ?></h3>
+                        <h3><span class="text-danger"><?php echo htmlspecialchars($donneesUsa['nomArtiste']); ?></span>-<?php echo htmlspecialchars($donneesUsa['titre']); ?></h3>
                         <p id="iframe"><iframe class="img-fluid iframe" src="<?php echo $donneesUsa['url']; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 
                         <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesUsa['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesUsa['datePub']); ?></small></p>

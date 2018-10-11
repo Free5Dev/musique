@@ -2,7 +2,7 @@
     // appel de la function de connexion à la bdd
     require_once('connexion.inc.php');
     // blog
-    $reqBlog=$bdd->query("SELECT b.id,b.titre,b.commentaire,b.idMembre,b.urlBlog,b.photoBlog,date_format(dateBlog,'Le %d/%m/%Y à %Hh%imin%ss') as dateBlog,m.nom FROM blog as b, membres as m WHERE b.idMembre=m.id order by id desc limit 8");
+    $reqBlog=$bdd->query("SELECT b.id,b.titre,b.commentaire,b.idMembre,b.urlBlog,b.photoBlog,date_format(dateBlog,'Le %d/%m/%Y à %Hh%i') as dateBlog,m.nom FROM blog as b, membres as m WHERE b.idMembre=m.id order by id desc limit 8");
     // requete pour rap Fr
     $reqFr=$bdd->query("SELECT z.id,z.nomArtiste,z.titre,z.url,z.description,z.photo,z.origine,date_format(datePub, 'Le %d/%m/%Y à %Hh%imin%ss') as datePub,z.idMembre,z.idMusiqueCategorie,m.nom FROM musiques as z,membres as m WHERE z.idMembre=m.id AND z.idMusiqueCategorie=2 ORDER BY ID DESC LIMIT 8");
     //   requete rap afro
@@ -61,7 +61,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item  ">
                 <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
@@ -81,7 +81,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="kbzTv.inc.php">KbzTv</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="kbzBlog.inc.php">Blog</a>
             </li>
             <li class="nav-item">
@@ -106,12 +106,15 @@
                     <div class="col-sm-12 col-md-6 colRapUsaGaucheElementVideo">
                        
                         <div class="colRapUsaGaucheElementVideoElement">
-                            <h3 ><a href="kbzBlogCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>" class="text-danger" style="text-transform:uppercase;"><?php echo htmlspecialchars($donneesBlog['titre']); ?></h3>
+                           
                            
                             <p id="img"><a href="kbzBlogCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>"><img class="img-fluid img" src="<?php echo $donneesBlog['photoBlog']; ?>" /></a></p>
                             <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesBlog['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesBlog['dateBlog']); ?></small></p>
+
+                             <h3 ><a href="kbzBlogCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>" class="text-dark" style="text-transform:uppercase;"><?php echo htmlspecialchars($donneesBlog['titre']); ?></h3>
+
                             <p class="p4"><a href="kbzBlogCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesBlog['id']); ?>">Commentaires</a></p>
-                            <div class="row rowMusiqesBtnSociaux">
+                            <!-- <div class="row rowMusiqesBtnSociaux">
                                 <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
                                     <a class="btn btn-outline-primary btn-sm"><small>Partager sur Facebook</small></a>
                                 </div>
@@ -121,7 +124,7 @@
                                 <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
                                     <a class="btn btn-outline-success btn-sm"><small>Partager sur Tweeter</small></a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         
                     </div>

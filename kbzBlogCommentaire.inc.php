@@ -3,7 +3,7 @@
     require_once('connexion.inc.php');
     // verification de l'existance du lien 
     if(isset($_GET['ref'])){
-        $reqBlog=$bdd->prepare("SELECT b.id,b.titre,b.commentaire,b.idMembre,b.urlBlog,b.photoBlog,date_format(dateBlog,'Le %d/%m/%Y à %Hh%imin%ss') as dateBlog,m.nom FROM blog as b, membres as m WHERE b.idMembre=m.id AND b.id=? ");
+        $reqBlog=$bdd->prepare("SELECT b.id,b.titre,b.commentaire,b.idMembre,b.urlBlog,b.photoBlog,date_format(dateBlog,'Le %d/%m/%Y à %Hh%i') as dateBlog,m.nom FROM blog as b, membres as m WHERE b.idMembre=m.id AND b.id=? ");
         
         $reqBlog->execute(array($_GET['ref']));
         $donneesBlog=$reqBlog->fetch();
@@ -73,7 +73,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
@@ -93,7 +93,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="kbzTv.inc.php">KbzTv</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="kbzBlog.inc.php">Blog</a>
             </li>
             <li class="nav-item">

@@ -8,7 +8,7 @@
     $reqBlog=$bdd->query("SELECT b.id,b.titre,b.commentaire,b.idMembre,b.urlBlog,b.photoBlog,date_format(dateBlog,'Le %d/%m/%Y à %Hh%imin%ss') as dateBlog,m.nom FROM blog as b, membres as m WHERE b.idMembre=m.id order by id desc limit 1");
     $donneesBlog=$reqBlog->fetch();
      //   requete talent kbz
-     $reqTalent=$bdd->query("SELECT t.id,t.titre,t.nomTalent,t.biographie,t.idMembre,t.url,t.photoTalent,date_format(dateTalent,'Le %d/%m/%Y à %Hh%imin%ss') as dateTalent,m.nom FROM talent as t, membres as m WHERE t.idMembre=m.id ORDER BY id DESC");
+     $reqTalent=$bdd->query("SELECT t.id,t.titre,t.nomTalent,t.biographie,t.idMembre,t.url,t.photoTalent,date_format(dateTalent,'Le %d/%m/%Y à %Hh%i') as dateTalent,m.nom FROM talent as t, membres as m WHERE t.idMembre=m.id ORDER BY id DESC");
      //   requete kbzTv
      $reqKbzTv=$bdd->query("SELECT k.id,k.titre,k.photoKbzTv,k.idMembre,date_format(dateTv,'Le %d/%m/%Y à %Hh%imin%ss') as dateTv,m.nom FROM kbztv as k, membres as m WHERE k.idMembre=m.id order by id desc limit 1");
      $donneesKbzTv=$reqKbzTv->fetch();
@@ -59,7 +59,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
@@ -82,7 +82,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="kbzBlog.inc.php">Blog</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="kbzTalent.inc.php">Talent</a>
             </li>
             <li class="nav-item">
@@ -105,8 +105,9 @@
                         <div class="col col-md-12 colAccueilGaucheElementVideo">
                             <!-- contenue de colAccueilGaucheElementVideo -->
                             <h2><?php echo htmlspecialchars($donneesTalent['titre']); ?></h2>
-                            <p class="p1"><strong class="text-danger">Rédateur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesTalent['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesTalent['dateTalent']); ?></small></p>
+                           
                             <p><iframe class="img-fluid iframe" src="<?php echo $donneesTalent['url']; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
+                            <p class="p1"><strong class="text-danger">Rédateur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesTalent['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesTalent['dateTalent']); ?></small></p>
                             <p class="p4"><a href="kbzTalentCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesTalent['id']); ?>">Lire biographie</a></p>
                             <!-- button reseaux sociaux -->
                             <div class="row rowAccueilBtnSociaux">

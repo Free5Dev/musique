@@ -5,7 +5,7 @@
     if(isset($_GET['ref'])){
         
         //   requete talent kbz
-        $reqKbzTalent=$bdd->prepare("SELECT t.id,t.titre,t.nomTalent,t.biographie,t.idMembre,t.url,t.photoTalent,date_format(dateTalent,'Le %d/%m/%Y à %Hh%imin%ss') as dateTalent,m.nom FROM talent as t, membres as m WHERE t.idMembre=m.id AND t.id=?");
+        $reqKbzTalent=$bdd->prepare("SELECT t.id,t.titre,t.nomTalent,t.biographie,t.idMembre,t.url,t.photoTalent,date_format(dateTalent,'Le %d/%m/%Y à %Hh%i') as dateTalent,m.nom FROM talent as t, membres as m WHERE t.idMembre=m.id AND t.id=?");
         $reqKbzTalent->execute(array($_GET['ref']));
         $donneesKbzTalent=$reqKbzTalent->fetch();
         if(empty($donneesKbzTalent)){
@@ -73,7 +73,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
@@ -96,7 +96,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="kbzBlog.inc.php">Blog</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="kbzTalent.inc.php">Talent</a>
             </li>
             <li class="nav-item">
@@ -116,8 +116,10 @@
                    <div class="col-md-12 colCommentaire">
                        <!-- contenue de colAccueilGaucheElementVideo -->
                        <h3><?php echo htmlspecialchars($donneesKbzTalent['titre']); ?></h3>
-                            <p class="p1"><strong class="text-danger">Rédateur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesKbzTalent['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesKbzTalent['dateTalent']); ?></small></p>
+                            
                             <p><iframe class="img-fluid iframe" src="<?php echo $donneesKbzTalent['url']; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
+                            
+                            <p class="p1"><strong class="text-danger">Rédateur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesKbzTalent['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesKbzTalent['dateTalent']); ?></small></p>
 
                             <p class="p4 text-danger" style="text-transform:uppercase;">Lire Biographie</p>
                             <p><?php echo nl2br(htmlspecialchars($donneesKbzTalent['biographie'])); ?></p>
