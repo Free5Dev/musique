@@ -503,6 +503,120 @@ header{
     color: maroon;
     letter-spacing: 1;
 }
+/* ----------------------------------------login----------------- ---------------------------------------------*/
+.loginFluid{
+    /* height: 500px; */
+    /* border:1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding: 15px 5px 15px 5px; */
+    margin: 100px/0px;
+    background-color: #eee;
+
+}
+.loginContainer{
+    /* border:1px solid #000; */
+    /* height: 200px; */
+    padding: 5px;
+    background-color: #fff;
+    margin:35px 0 35px 0;
+}
+.loginRow{
+
+}
+.loginCol{
+
+}
+.loginCol form{
+    margin: 20px 5px 20px 5px;
+}
+.loginCol form legend{
+    text-transform: uppercase;
+    color: #000;
+    text-align: center;
+}
+.loginCol input{
+    border:1px solid #000;
+}
+.loginCol label{
+    font-weight: bold;
+}
+/* ---------------------------------header Admin----------------------------- */
+.headerAdmin
+{
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.headerAdmin a{
+    background-color: #fff;
+    color: red;
+    text-transform: uppercase;
+   
+    text-align: center;
+    display: block;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius:5px;
+}
+/* ------------------index admin-------------------- */
+.indexAdminContenu{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #eee;
+    margin: 15px 0 15px 0;
+}
+.indexAdminElement{
+    text-align: center;
+    flex:1;
+    margin: 5px;
+    background-color: #fff;
+}
+.indexAdminElement:hover{
+    /* border:1px solid #000; */
+    background-color: #eee; 
+}
+.indexAdminElement a{
+    color: #000;
+}
+.indexMusicFluid h1{
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS',serif;
+    font-weight: normal;
+}
+.indexMusicRow{
+    /* border:1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.indexMusicCol p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+.indexMusicCol a{
+    text-transform: uppercase;
+    display: block;
+    vertical-align: middle;
+}
+
+
+
+
+
+
+
 
 /* ----------------------------------------les media queries -------------------------------------------------*/
 @media all and (max-width:1024px){

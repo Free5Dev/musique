@@ -68,7 +68,7 @@
                        <h2><span><?php echo htmlspecialchars($donneesUsaEtFrKbzTv['invite']); ?></span></h2>
                         <p class="pIframe"><iframe class="img-fluid iframe" src="<?php echo $donneesUsaEtFrKbzTv['url']; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
                         <p class="text-small"><?php echo htmlspecialchars($donneesUsaEtFrKbzTv['dateTv']); ?></p>
-                         <h2><?php echo htmlspecialchars($donneesUsaEtFrKbzTv['titre']); ?><?php echo htmlspecialchars($donneesUsaEtFrKbzTv['titre']); ?></h2> 
+                         <h2><?php echo htmlspecialchars($donneesUsaEtFrKbzTv['titre']); ?></h2> 
                         <p class="p4"><a href="kbzTvCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsaEtFrKbzTv['id']); ?>">Commentaires</a></p>
                         <!-- button reseaux sociaux -->
                         <div class="row rowAccueilBtnSociaux">
@@ -219,7 +219,7 @@
     
                </div>
             </article>
-
+            
         </section>
     </section>
 </body>
