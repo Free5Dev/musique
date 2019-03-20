@@ -59,6 +59,16 @@
     <link rel="stylesheet" href="./css/style.css"/>
     <!-- lien script js -->
     <script src="./js/script.js"></script>
+    <!--Début  code publicités pour google adsens -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-2672204138091937",
+            enable_page_level_ads: true
+        });
+    </script>
+    <!--Fin  code publicités pour google adsens  -->
+    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5bfd55e7ea80c50011bc5a2b&product=inline-share-buttons"></script>
 </head>
 <body>
      <!-- inclusion du header -->
@@ -100,7 +110,7 @@
                 <a class="nav-link" href="kbzTalent.inc.php">Talent</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="kbzShop.inc.php">Shop</a>
+                <!-- <a class="nav-link" href="kbzShop.inc.php">Shop</a> -->
             </li>
 
             </ul>
@@ -120,7 +130,10 @@
                         <p class="p1"><strong class="text-danger">Rédacteur: </strong><small><i class="fas fa-user-edit"></i> <?php echo htmlspecialchars($donneesBlog['nom']); ?></small> <strong class="text-danger">Date:</strong> <small><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($donneesBlog['dateBlog']); ?></small></p>
                         <p><strong class="text-danger">DESCRIPTION:</strong><?php echo nl2br(htmlspecialchars($donneesBlog['commentaire'])); ?></p>
                         <div class="row rowMusiqesBtnSociaux">
-                            <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
+                            <div class="col-md-12">
+                                <div class="sharethis-inline-share-buttons"></div>
+                            </div>
+                            <!-- <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
                                 <a class="btn btn-outline-primary btn-sm"><small>Partager sur Facebook</small></a>
                             </div>
                             <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
@@ -128,7 +141,7 @@
                             </div>
                             <div class="col-sm-12 col-md-4 colMusiquesBtnSociaux">
                                 <a class="btn btn-outline-success btn-sm"><small>Partager sur Tweeter</small></a>
-                            </div>
+                            </div> -->
                         </div>
                    </div>
                    <!--  -->

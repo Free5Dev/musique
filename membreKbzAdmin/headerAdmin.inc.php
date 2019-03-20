@@ -12,7 +12,8 @@
     // requete de selection de membres
     $req=$bdd->query("SELECT * FROM membres");
     $donnees=$req->fetch();
-    setcookie("nom", $donnees['id'],time()+3600,null,null,false,true);
+    $_SESSION['nom']= $donnees['id'];
+    setcookie("nom", $donnees['id'],time()+3600*24*60*60,null,null,false,true);
 ?>
 <!DOCTYPE html>
 <html lang="en">

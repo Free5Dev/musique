@@ -51,6 +51,16 @@
     <link rel="stylesheet" href="./css/style.css"/>
     <!-- lien script js -->
     <script src="./js/script.js"></script>
+    <!--Début  code publicités pour google adsens -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-2672204138091937",
+            enable_page_level_ads: true
+        });
+    </script>
+    <!--Fin  code publicités pour google adsens  -->
+    <!-- <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5bfd55e7ea80c50011bc5a2b&product=inline-share-buttons' async='async'></script> -->
 </head>
 <body>
     <!-- include header -->
@@ -94,17 +104,18 @@
                 <a class="nav-link" href="kbzTalent.inc.php">Talent</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="kbzShop.inc.php">Shop</a>
+                <!-- <a class="nav-link" href="kbzShop.inc.php">Shop</a> -->
             </li>
 
             </ul>
         </div>
     </nav>
     <!--end navbar-->
-
+    <!-- <div class="sharethis-inline-share-buttons"></div> -->
 
     <section class="container-fluid fluidContact">
         <h1>contactez - nous </h1><hr>
+       
         <section class="row rowContact">
             <section class="col-sm-12 col-md-4 col-md-8 colContact">
                 <h2>Envoyez nous une note</h2>

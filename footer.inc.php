@@ -32,6 +32,7 @@
    <footer class="container-fluid footer">
        <div class="container footerContainer">
            <div class="row footerRow">
+           
                <div class="col-sm-12 col-md-4 footerElement" >
                    <h1><a href="index.php">K.B.Z</a></h1>
                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, nihil velit totam, consectetur assumenda labore praesentium corrupti aliquid placeat odio fugiat ullam fuga tenetur est cumque consequuntur, aspernatur enim blanditiis.</p>
@@ -63,10 +64,10 @@
                     </form>
                </div>
                <figure class="container">
-                   <a href="" title="Facebook"><i class="fab fa-facebook"></i></a>
-                   <a href="" title="Gmail"><i class="fas fa-at"></i></a>
-                   <a href="" title="Youtube"><i class="fab fa-youtube"></i></a>
-                   <a href="" title="Twitter"><i class="fab fa-twitter"></i></a>
+                   <a href="https://www.facebook.com/KBZ-au-tour-du-th%C3%A9-897312700472820/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                   <a href="mailto:kbzofficiel@gmail.com" title="Gmail"><i class="fas fa-at"></i></a>
+                   <a href="https://www.youtube.com/channel/UCjL9cSgep65_Zm74J4KiISg" target="_blank" title="Youtube"><i class="fab fa-youtube"></i></a>
+                   <a href="https://twitter.com/kobaz_kbz" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
                    <figcaption><i class="far fa-copyright"></i> K.B.Z-2018-Réalisé par <a href="http://www.saidsoumah.com" class="text-danger" target="_blank">SaidSoumah</a></figcaption>
                </figure>
            </div>

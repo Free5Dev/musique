@@ -28,9 +28,9 @@
 <body>
     <header>
         <div class="headerGauche">
-            <a href=""><i class="fab fa-facebook-f" title="Suivez nous sur Facebook"></i></a>
-            <a href="" ><i class="fab fa-youtube" title="Suivez nous sur Youtube"></i></a>
-            <a href=""><i class="fab fa-twitter" title="Suivez nous sur Twitter"></i></a>
+            <a href="https://www.facebook.com/KBZ-au-tour-du-th%C3%A9-897312700472820/" target="_blank"><i class="fab fa-facebook-f" title="Suivez nous sur Facebook"></i></a>
+            <a href="https://www.youtube.com/channel/UCjL9cSgep65_Zm74J4KiISg" target="_blank"><i class="fab fa-youtube" title="Suivez nous sur Youtube"></i></a>
+            <a href="https://twitter.com/kobaz_kbz" target="_blank"><i class="fab fa-twitter" title="Suivez nous sur Twitter"></i></a>
         </div>
         <div class="headerDroite">
             <form action="" class="form-inline justify-content-end">

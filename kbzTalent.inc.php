@@ -45,6 +45,15 @@
     <link rel="stylesheet" href="./css/style.css"/>
     <!-- lien script js -->
     <script src="./js/script.js"></script>
+    <!--Début  code publicités pour google adsens -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-2672204138091937",
+            enable_page_level_ads: true
+        });
+    </script>
+    <!--Fin  code publicités pour google adsens  -->
 </head>
 <body>
      <!-- inclusion du header -->
@@ -86,7 +95,7 @@
                 <a class="nav-link" href="kbzTalent.inc.php">Talent</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="kbzShop.inc.php">Shop</a>
+                <!-- <a class="nav-link" href="kbzShop.inc.php">Shop</a> -->
             </li>
 
             </ul>
@@ -111,7 +120,7 @@
                             <p class="p4"><a href="kbzTalentCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesTalent['id']); ?>">Lire biographie</a></p>
                             <!-- button reseaux sociaux -->
                             <div class="row rowAccueilBtnSociaux">
-                                <div class="col-md-4 col-sm-4 img-fluid">
+                                <!-- <div class="col-md-4 col-sm-4 img-fluid">
                                     <button class="btn btn-outline-primary">Partager sur Facebook</button>
                                 </div>
                                 <div class="col-md-4 col-sm-4 img-fluid">
@@ -119,7 +128,7 @@
                                 </div>
                                 <div class="col-md-4 col-sm-4 img-fluid">
                                     <button class="btn btn-outline-success">Partager sur Tweeter</button>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

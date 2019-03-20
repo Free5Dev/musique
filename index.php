@@ -26,6 +26,17 @@
     <link rel="stylesheet" href="./css/style.css"/>
     <!-- lien script js -->
     <script src="./js/script.js"></script>
+
+    <!--Début  code publicités pour google adsens -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-2672204138091937",
+            enable_page_level_ads: true
+        });
+    </script>
+    <!--Fin  code publicités pour google adsens  -->
+    
 </head>
 <body>
     <!-- inclusion du header -->

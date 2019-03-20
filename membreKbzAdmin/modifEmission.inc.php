@@ -35,7 +35,7 @@
         }
     }
     // requete de categorie de musiques
-    $reqCategorie=$bdd->query("SELECT id,categorie FROM musiqueCategories");
+    $reqCategorie=$bdd->query("SELECT * FROM musiquecategories");
     
 ?>
 <!DOCTYPE html>

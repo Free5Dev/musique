@@ -1,6 +1,7 @@
 <?php 
     // function de connexion à la bdd
     require_once("../connexion.inc.php");
+    
      // requete de recuperage de toute la table musiques
      $reqMusic=$bdd->query("SELECT * FROM musiques ORDER BY id DESC LIMIT 20");
     // form de search 

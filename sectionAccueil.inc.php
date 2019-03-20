@@ -54,6 +54,16 @@
     <link rel="stylesheet" href="./css/style.css"/>
     <!-- lien script js -->
     <script src="./js/script.js"></script>
+    <!--Début  code publicités pour google adsens -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-2672204138091937",
+            enable_page_level_ads: true
+        });
+    </script>
+    <!--Fin  code publicités pour google adsens  -->
+    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5bfd55e7ea80c50011bc5a2b&product=inline-share-buttons"></script>
 </head>
 <body>
     <!-- section accueil -->
@@ -72,25 +82,18 @@
                         <p class="p4"><a href="kbzTvCommentaire.inc.php?ref=<?php echo htmlspecialchars($donneesUsaEtFrKbzTv['id']); ?>">Commentaires</a></p>
                         <!-- button reseaux sociaux -->
                         <div class="row rowAccueilBtnSociaux">
-                            <div class="col-md-4 col-sm-4 img-fluid">
-                                <!-- plegun partage facebook -->
-                                    <div id="fb-root"></div>
-                                    <script>(function(d, s, id) {
-                                    var js, fjs = d.getElementsByTagName(s)[0];
-                                    if (d.getElementById(id)) return;
-                                    js = d.createElement(s); js.id = id;
-                                    js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.1';
-                                    fjs.parentNode.insertBefore(js, fjs);
-                                    }(document, 'script', 'facebook-jssdk'));</script>
-                                <!-- end plegun partage facebook -->
-                                <button type="submit" href="http://www.saidsoumah.com/sectionAccueil.inc.php" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.saidsoumah.com%2FsectionAccueil.inc.php&amp;src=sdkpreparse" class="btn btn-outline-primary"> Partager sur Facebook </a></button>
+                            <div class="col-md-12">
+                                <div class="sharethis-inline-share-buttons"></div>
+                            </div>
+                            <!-- <div class="col-md-4 col-sm-4 img-fluid">
+                                <button type="submit" href="#"><a  href="#" class="btn btn-outline-primary"> Partager sur Facebook </a></button>
                             </div>
                             <div class="col-md-4 col-sm-4 img-fluid">
-                                <button type="submit" ><a  href="https://plus.google.com/share?url=http://www.saidsoumah.com/sectionAccueil.inc.php" class="btn btn-outline-danger" target="_blank">Partager sur Google+ </a></button>
+                                <button type="submit" ><a  href="#" class="btn btn-outline-danger" >Partager sur Google+ </a></button>
                             </div>
                             <div class="col-md-4 col-sm-4 img-fluid">
-                                <button type="submit"> <a href="https://twitter.com/intent/tweet?text=<?php echo 'Découvrer le clip de :'.$donneesUsaEtFrKbzTv['invite'].' '.$donneesUsaEtFrKbzTv['titre']; ?> via=KBZOfficial&url=<?php echo $_SERVER['PHP_SELF']; ?>" class="btn btn-outline-success" target="_blank"> Partager sur Tweeter </a></button>
-                            </div>
+                                <button type="submit"> <a href="" class="btn btn-outline-success" > Partager sur Tweeter </a></button>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col col-md-12 colAccueilGaucheElementVideo">
